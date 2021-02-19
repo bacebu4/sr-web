@@ -16,6 +16,7 @@ const LayoutWrapper = styled.main`
   display: flex;
   justify-content: space-between;
   padding: 44px 18px;
+  min-height: 100vh;
 `;
 
 const RightMenuWrapper = styled.div`
