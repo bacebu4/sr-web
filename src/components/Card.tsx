@@ -10,7 +10,6 @@ const CardWrapper = styled.section`
   padding: 32px;
   font-family: "Abhaya Libre", serif;
   font-size: 1.125rem;
-  width: 100%;
 `;
 
 const CardTitle = styled.h2`

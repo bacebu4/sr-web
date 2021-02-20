@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Card } from "./components/Card";
+import { Comment } from "./components/Comment";
 
 export const useRoutes = (isAuth: boolean) => {
   if (isAuth) {
@@ -9,6 +10,7 @@ export const useRoutes = (isAuth: boolean) => {
         <Route path="/" exact>
           <>
             <Card />
+            <Comment />
           </>
         </Route>
         <Redirect to="/" />
