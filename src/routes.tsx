@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Switch, Route, Redirect } from "react-router-dom";
+import { BaseInput } from "./components/BaseInput";
 import { Card } from "./components/Card";
 
 export const useRoutes = (isAuth: boolean) => {
@@ -9,6 +10,7 @@ export const useRoutes = (isAuth: boolean) => {
         <Route path="/" exact>
           <>
             <Card />
+            <BaseInput placeholder="Search" />
           </>
         </Route>
         <Redirect to="/" />
