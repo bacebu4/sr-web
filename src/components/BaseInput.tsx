@@ -10,7 +10,6 @@ const InputArea = styled.input<{ margin?: string }>`
   background-color: ${GRAY}1A;
   border-radius: 9px;
   border: 1px solid ${GRAY}03;
-  outline: none;
   color: ${DARK};
 
   :focus {
