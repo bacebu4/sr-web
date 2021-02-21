@@ -23,7 +23,7 @@ const CardAuthor = styled.h3`
   color: ${GRAY};
 `;
 
-const TextWrapper = styled.div`
+const TextWrapper = styled.p`
   text-align: justify;
   line-height: 1.4;
   margin-top: 16px;
