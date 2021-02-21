@@ -5,7 +5,7 @@ import { GRAY, DARK } from "../utils/colors";
 const InputArea = styled.input<{ margin?: string }>`
   margin: ${(props) => props.margin};
 
-  font-size: 1rem;
+  font-size: 0.875rem;
   padding: 8px 12px;
   background-color: ${GRAY}1A;
   border-radius: 14px;
