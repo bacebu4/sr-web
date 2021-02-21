@@ -8,7 +8,7 @@ const InputArea = styled.input<{ margin?: string }>`
   font-size: 1rem;
   padding: 8px 12px;
   background-color: ${GRAY}1A;
-  border-radius: 9px;
+  border-radius: 14px;
   border: 1px solid ${GRAY}03;
   color: ${DARK};
 
