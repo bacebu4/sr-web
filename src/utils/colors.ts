@@ -5,6 +5,9 @@ export const GRAY = "#B0AFAF";
 export const WHITE = "#ffffff";
 export const OFF_WHITE = "#F9F9F9";
 
+export const OPACITY10 = "1A";
+export const OPACITY1 = "03";
+
 const colors = {
   purple: PURPLE,
   dark: DARK,
