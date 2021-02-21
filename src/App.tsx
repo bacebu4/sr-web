@@ -25,7 +25,6 @@ const RightMenuWrapper = styled.div`
 
 const LeftMenuWrapper = styled.div`
   max-width: 500px;
-  width: 100%;
 `;
 
 const App: React.FC = () => {

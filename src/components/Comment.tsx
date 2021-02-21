@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { GRAY, WHITE } from "../utils/colors";
 import { FlexBox } from "./FlexBox";
-import cover from "../assets/cover.png";
 import { Dots } from "./Dots";
 
-const CardWrapper = styled.section`
+const CommentWrapper = styled.section`
   background-color: ${WHITE};
   border-radius: 20px;
   padding: 32px;
@@ -12,14 +11,8 @@ const CardWrapper = styled.section`
   font-size: 1.125rem;
 `;
 
-const CardTitle = styled.h2`
-  font-weight: 600;
-  font-size: 1.375rem;
-  line-height: 1.4;
-`;
-
-const CardAuthor = styled.h3`
-  font-size: 1.125rem;
+const CommentDate = styled.h3`
+  font-size: 0.875rem;
   color: ${GRAY};
 `;
 
@@ -30,19 +23,14 @@ const TextWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  margin-left: auto;
   cursor: pointer;
 `;
 
-export const Card: React.FC = () => {
+export const Comment: React.FC = () => {
   return (
-    <CardWrapper>
-      <FlexBox>
-        <img width={48} src={cover} alt="4 Hour Workweek Book cover" />
-        <FlexBox direction="column" ml="16px">
-          <CardTitle>4 Hour Workweek</CardTitle>
-          <CardAuthor>Tim Ferris</CardAuthor>
-        </FlexBox>
+    <CommentWrapper>
+      <FlexBox jc="space-between" ai="center">
+        <CommentDate>2020/08/02</CommentDate>
         <ButtonWrapper>
           <Dots />
         </ButtonWrapper>
@@ -53,6 +41,6 @@ export const Card: React.FC = () => {
         ratione cupiditate ex praesentium voluptates sed! Quisquam sint in
         nostrum porro!
       </TextWrapper>
-    </CardWrapper>
+    </CommentWrapper>
   );
 };
