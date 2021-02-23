@@ -39,7 +39,7 @@ const PushForStickyFooter = styled.div`
 
 const App: React.FC = () => {
   const isAuth = true;
-  const routes = useRoutes(isAuth);
+  const { Routes } = useRoutes(isAuth);
 
   return (
     <BrowserRouter>
@@ -47,7 +47,7 @@ const App: React.FC = () => {
       <LayoutWrapper>
         <LeftMenuWrapper>
           <LeftMenuInner>
-            {routes}
+            <Routes />
             <PushForStickyFooter />
           </LeftMenuInner>
           <Footer />

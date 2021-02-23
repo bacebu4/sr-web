@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { WHITE } from "../utils/colors";
 import { Logo } from "./Logo";
+import { BaseInput } from "./BaseInput";
 
 const NavbarWrapper = styled.header`
   background-color: ${WHITE};
@@ -29,7 +30,7 @@ export const Navbar: React.FC = () => {
       <NavbarContainer>
         <NavbarInner>
           <Logo />
-          <h1>Search input here...</h1>
+          <BaseInput placeholder="Notes & Books" />
         </NavbarInner>
       </NavbarContainer>
     </NavbarWrapper>
