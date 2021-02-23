@@ -2,6 +2,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Card } from "./components/Card";
 import { Comment } from "./components/Comment";
+import { Title } from "./components/Title";
 
 export const useRoutes = (isAuth: boolean) => {
   if (isAuth) {
@@ -11,6 +12,11 @@ export const useRoutes = (isAuth: boolean) => {
           <>
             <Card />
             <Comment />
+            <Title
+              type="large"
+              title="Highlight of the day"
+              subtitle="Click on the button below to see the rest of yout highlights"
+            />
           </>
         </Route>
         <Redirect to="/" />
