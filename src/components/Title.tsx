@@ -51,7 +51,7 @@ export const Title: React.FC<TitleType> = ({
   title,
   subtitle,
 }) => {
-  function setTitleAndSubtitleByType(
+  function getTitleAndSubtitleByType(
     styleType: VariantType,
     titleText: string,
     subtitleText?: string
