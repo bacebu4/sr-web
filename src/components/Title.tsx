@@ -5,7 +5,7 @@ import { GRAY } from "../utils/colors";
 type VariantType = "large" | "medium" | "small";
 
 type TitleType = {
-  type?: VariantType;
+  variant?: VariantType;
   title: string;
   subtitle?: string;
 };
@@ -47,7 +47,7 @@ const TitleSmall = styled.h4`
 `;
 
 export const Title: React.FC<TitleType> = ({
-  type = "small",
+  variant = "small",
   title,
   subtitle,
 }) => {
@@ -78,7 +78,7 @@ export const Title: React.FC<TitleType> = ({
 
   return (
     <TitleWrapper>
-      {getTitleAndSubtitleByType(type, title, subtitle)}
+      {getTitleAndSubtitleByType(variant, title, subtitle)}
     </TitleWrapper>
   );
 };

@@ -16,7 +16,7 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
           <Route path="/" exact>
             <>
               <Title
-                type="large"
+                variant="large"
                 title="Highlight of the day"
                 subtitle="Click on the button below to see the rest of your highlights"
               />
