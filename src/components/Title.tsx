@@ -78,7 +78,7 @@ export const Title: React.FC<TitleType> = ({
 
   return (
     <TitleWrapper>
-      {setTitleAndSubtitleByType(type, title, subtitle)}
+      {getTitleAndSubtitleByType(type, title, subtitle)}
     </TitleWrapper>
   );
 };
