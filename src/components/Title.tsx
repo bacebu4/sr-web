@@ -33,7 +33,7 @@ const TitleMedium = styled.h3`
   line-height: 1.4;
 `;
 
-const TitleMediumSubtitle = styled.h3`
+const TitleMediumSubtitle = styled.h4`
   font-size: 1.125rem;
   font-weight: 500;
   color: ${GRAY};
