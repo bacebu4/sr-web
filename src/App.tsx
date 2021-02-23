@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { BrowserRouter } from "react-router-dom";
 import { useRoutes } from "./routes";
 import { Footer } from "./components/Footer";
+import { Navbar } from "./components/Navbar";
 
 const RightMenu = styled.div`
   position: fixed;
@@ -42,7 +43,7 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
-      {isAuth && <div>navbar</div>}
+      {isAuth && <Navbar />}
       <LayoutWrapper>
         <LeftMenuWrapper>
           <LeftMenuInner>
