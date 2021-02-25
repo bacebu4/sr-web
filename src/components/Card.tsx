@@ -39,7 +39,7 @@ export const Card: React.FC = () => {
     <CardWrapper>
       <FlexBox>
         <img width={48} src={cover} alt="4 Hour Workweek Book cover" />
-        <FlexBox direction="column" ml="16px">
+        <FlexBox direction="column" ml={16}>
           <CardTitle>4 Hour Workweek</CardTitle>
           <CardAuthor>Tim Ferris</CardAuthor>
         </FlexBox>
