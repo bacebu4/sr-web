@@ -15,16 +15,17 @@ type InputAreaStyledType = {
 const InputWrapper = styled.div<{ maxWidth?: string }>`
   position: relative;
   max-width: ${(props) => props.maxWidth};
+  width: 100%;
 `;
 
 const InputArea = styled.input<InputAreaStyledType>`
   margin-top: ${(props) => props.mt}px;
   margin-left: ${(props) => props.ml}px;
 
-  width: 100%;
   font-family: inherit;
   font-size: 1rem;
   padding: 10px 16px;
+  width: 100%;
 
   background-color: ${GRAY}${OPACITY10};
   border-radius: 14px;
@@ -69,10 +70,11 @@ interface BaseInputType extends InputHTMLAttributes<HTMLInputElement> {
 export const BaseInput: React.FC<BaseInputType> = ({
   variant = "base",
   onClick,
+  maxWidth,
   ...rest
 }) => {
   return (
-    <InputWrapper>
+    <InputWrapper maxWidth={maxWidth}>
       <InputArea type="text" variant={variant} {...rest} />
       {variant === "send" && (
         <PaperPlaneWrapper onClick={onClick}>
