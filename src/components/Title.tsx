@@ -21,7 +21,7 @@ const TitleLarge = styled.h2`
 `;
 
 const TitleLargeSubtitle = styled.h3`
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   font-family: "Poppins";
   color: ${GRAY};
@@ -34,7 +34,7 @@ const TitleMedium = styled.h3`
 `;
 
 const TitleMediumSubtitle = styled.h4`
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 500;
   color: ${GRAY};
 `;
