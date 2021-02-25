@@ -62,7 +62,7 @@ const PaperPlaneWrapper = styled.div`
 interface BaseInputType extends InputHTMLAttributes<HTMLInputElement> {
   mt?: number;
   ml?: number;
-  maxWidth?: number;
+  maxWidth?: string;
   variant?: VariantType;
 }
 
@@ -81,7 +81,4 @@ export const BaseInput: React.FC<BaseInputType> = ({
       )}
     </InputWrapper>
   );
-
 };
-
-export const BaseInput = withLayoutStyles(BaseInputToTransform);
