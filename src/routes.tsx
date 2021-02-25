@@ -25,7 +25,11 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
 
               <Card mt={32} />
               <Comment mt={16} />
-              <BaseInput variant="send" mt={16} />
+              <BaseInput
+                variant="send"
+                placeholder="Add new comment..."
+                mt={16}
+              />
               <Title
                 variant="large"
                 title="Reviewing goals"
