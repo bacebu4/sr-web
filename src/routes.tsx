@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Card } from "./components/Card";
 import { Comment } from "./components/Comment";
+import { Heatmap } from "./components/Heatmap";
 import { Title } from "./components/Title";
 
 type UseRoutesType = {
@@ -22,6 +23,12 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
               />
               <Card />
               <Comment />
+              <Title
+                variant="large"
+                title="Reviewing goals"
+                subtitle="Don’t forget what you read. Review your notes daily!"
+              />
+              <Heatmap />
             </>
           </Route>
           <Redirect to="/" />
