@@ -44,9 +44,9 @@ export const Heatmap: React.FC<HeatmapProps> = ({ data }) => {
         values={randomValues}
         classForValue={(value) => {
           if (value.count === 0) {
-            return "active";
+            return "empty";
           }
-          return "black";
+          return "active";
         }}
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         tooltipDataAttrs={(value: any) => {
