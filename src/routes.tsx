@@ -21,14 +21,16 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
                 title="Highlight of the day"
                 subtitle="Click on the button below to see the rest of your highlights"
               />
-              <Card />
-              <Comment />
+
+              <Card mt={32} />
+              <Comment mt={16} />
               <Title
                 variant="large"
                 title="Reviewing goals"
                 subtitle="Don’t forget what you read. Review your notes daily!"
               />
               <Heatmap />
+
             </>
           </Route>
           <Redirect to="/" />

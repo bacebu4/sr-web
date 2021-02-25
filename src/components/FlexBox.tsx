@@ -21,9 +21,9 @@ interface FlexBoxProps {
     | "baseline"
     | "normal"
     | "stretch";
-  mt?: string;
-  ml?: string;
-  pr?: string;
+  mt?: number;
+  ml?: number;
+  pr?: number;
   w?: string;
   h?: string;
   direction?: "column";
@@ -34,9 +34,9 @@ export const FlexBox = styled.div<FlexBoxProps>`
   flex-direction: ${(props) => props.direction};
   justify-content: ${(props) => props.jc};
   align-items: ${(props) => props.ai};
-  margin-left: ${(props) => props.ml};
-  margin-top: ${(props) => props.mt};
-  padding-right: ${(props) => props.pr};
+  margin-left: ${(props) => props.ml}px;
+  margin-top: ${(props) => props.mt}px;
+  padding-right: ${(props) => props.pr}px;
   width: ${(props) => props.w};
   height: ${(props) => props.h};
 `;
