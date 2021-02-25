@@ -25,6 +25,7 @@ const InputArea = styled.input<InputAreaStyledType>`
   font-family: inherit;
   font-size: 1rem;
   padding: 10px 16px;
+
   background-color: ${GRAY}${OPACITY10};
   border-radius: 14px;
   border: 1px solid ${GRAY}${OPACITY1};
@@ -80,4 +81,7 @@ export const BaseInput: React.FC<BaseInputType> = ({
       )}
     </InputWrapper>
   );
+
 };
+
+export const BaseInput = withLayoutStyles(BaseInputToTransform);

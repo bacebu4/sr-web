@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { GRAY, WHITE } from "../utils/colors";
 import { FlexBox } from "./FlexBox";
 import { Dots } from "./Dots";
+import { withLayoutStyles } from "./LayoutStyles";
 
-const CommentWrapper = styled.section<{ mt?: number }>`
-  margin-top: ${(props) => props.mt}px;
+const CommentWrapper = styled.section`
   background-color: ${WHITE};
   border-radius: 20px;
   padding: 32px;
@@ -31,9 +31,9 @@ type CommentProps = {
   mt?: number;
 };
 
-export const Comment: React.FC<CommentProps> = ({ mt }) => {
+export const CommentToTransform: React.FC<CommentProps> = () => {
   return (
-    <CommentWrapper mt={mt}>
+    <CommentWrapper>
       <FlexBox jc="space-between" ai="center">
         <CommentDate>2020/08/02</CommentDate>
         <ButtonWrapper>
@@ -49,3 +49,5 @@ export const Comment: React.FC<CommentProps> = ({ mt }) => {
     </CommentWrapper>
   );
 };
+
+export const Comment = withLayoutStyles(CommentToTransform);
