@@ -4,7 +4,8 @@ import { FlexBox } from "./FlexBox";
 import cover from "../assets/cover.png";
 import { Dots } from "./Dots";
 
-const CardWrapper = styled.section`
+const CardWrapper = styled.section<{ mt?: number }>`
+  margin-top: ${(props) => props.mt}px;
   background-color: ${WHITE};
   border-radius: 20px;
   padding: 32px;
@@ -34,9 +35,13 @@ const ButtonWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const Card: React.FC = () => {
+type CardProps = {
+  mt?: number;
+};
+
+export const Card: React.FC<CardProps> = ({ mt }) => {
   return (
-    <CardWrapper>
+    <CardWrapper mt={mt}>
       <FlexBox>
         <img width={48} src={cover} alt="4 Hour Workweek Book cover" />
         <FlexBox direction="column" ml={16}>
