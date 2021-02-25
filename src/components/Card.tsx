@@ -35,7 +35,7 @@ const ButtonWrapper = styled.div`
   cursor: pointer;
 `;
 
-const CardToTransform: React.FC = withLayoutStyles(() => {
+export const CardToTransform: React.FC = () => {
   return (
     <CardWrapper>
       <FlexBox>
@@ -56,6 +56,6 @@ const CardToTransform: React.FC = withLayoutStyles(() => {
       </TextWrapper>
     </CardWrapper>
   );
-});
+};
 
 export const Card = withLayoutStyles(CardToTransform);
