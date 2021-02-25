@@ -3,9 +3,9 @@ import { GRAY, WHITE } from "../utils/colors";
 import { FlexBox } from "./FlexBox";
 import cover from "../assets/cover.png";
 import { Dots } from "./Dots";
+import { withLayoutStyles } from "./LayoutStyles";
 
-const CardWrapper = styled.section<{ mt?: number }>`
-  margin-top: ${(props) => props.mt}px;
+const CardWrapper = styled.section`
   background-color: ${WHITE};
   border-radius: 20px;
   padding: 32px;
@@ -35,13 +35,9 @@ const ButtonWrapper = styled.div`
   cursor: pointer;
 `;
 
-type CardProps = {
-  mt?: number;
-};
-
-export const Card: React.FC<CardProps> = ({ mt }) => {
+const CardToTransform: React.FC = withLayoutStyles(() => {
   return (
-    <CardWrapper mt={mt}>
+    <CardWrapper>
       <FlexBox>
         <img width={48} src={cover} alt="4 Hour Workweek Book cover" />
         <FlexBox direction="column" ml={16}>
@@ -60,4 +56,6 @@ export const Card: React.FC<CardProps> = ({ mt }) => {
       </TextWrapper>
     </CardWrapper>
   );
-};
+});
+
+export const Card = withLayoutStyles(CardToTransform);
