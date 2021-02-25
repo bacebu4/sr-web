@@ -1,11 +1,9 @@
 import { InputHTMLAttributes } from "react";
 import styled from "styled-components";
 import { GRAY, DARK, OPACITY10, OPACITY1 } from "../utils/colors";
+import { withLayoutStyles } from "./LayoutStyles";
 
-const InputArea = styled.input<{ mt?: number; ml?: number }>`
-  margin-top: ${(props) => props.mt}px;
-  margin-left: ${(props) => props.ml}px;
-
+const InputArea = styled.input`
   font-size: 0.875rem;
   padding: 8px 12px;
   background-color: ${GRAY}${OPACITY10};
@@ -27,6 +25,8 @@ interface BaseInputType extends InputHTMLAttributes<HTMLInputElement> {
   ml?: number;
 }
 
-export const BaseInput: React.FC<BaseInputType> = ({ ...rest }) => {
+const BaseInputToTransform: React.FC<BaseInputType> = ({ ...rest }) => {
   return <InputArea {...rest} />;
 };
+
+export const BaseInput = withLayoutStyles(BaseInputToTransform);

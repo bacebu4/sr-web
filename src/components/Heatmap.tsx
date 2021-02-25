@@ -1,7 +1,7 @@
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
 import ReactTooltip from "react-tooltip";
-import styled from "styled-components";
+import { withLayoutStyles } from "./LayoutStyles";
 
 type HeatmapProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,12 +24,8 @@ function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const Container = styled.div`
-  margin-top: 32px;
-`;
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const Heatmap: React.FC<HeatmapProps> = ({ data }) => {
+const HeatmapToTransform: React.FC<HeatmapProps> = ({ data }) => {
   const randomValues = getRange(200).map((index) => {
     return {
       date: shiftDate(today, -index),
@@ -37,7 +33,7 @@ export const Heatmap: React.FC<HeatmapProps> = ({ data }) => {
     };
   });
   return (
-    <Container>
+    <>
       <CalendarHeatmap
         startDate={shiftDate(today, -90)}
         endDate={today}
@@ -60,6 +56,8 @@ export const Heatmap: React.FC<HeatmapProps> = ({ data }) => {
         showMonthLabels={false}
       />
       <ReactTooltip />
-    </Container>
+    </>
   );
 };
+
+export const Heatmap = withLayoutStyles(HeatmapToTransform);

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-
 import { GRAY } from "../utils/colors";
+import { withLayoutStyles } from "./LayoutStyles";
 
 type VariantType = "large" | "medium" | "small";
 
@@ -11,8 +11,7 @@ type TitleType = {
   mt?: number;
 };
 
-const TitleWrapper = styled.div<{ mt?: number }>`
-  margin-top: ${(props) => props.mt}px;
+const TitleWrapper = styled.div`
   font-family: "'Abhaya Libre', serif";
 `;
 
@@ -48,11 +47,10 @@ const TitleSmall = styled.h4`
   color: ${GRAY};
 `;
 
-export const Title: React.FC<TitleType> = ({
+const TitleToTransform: React.FC<TitleType> = ({
   variant = "small",
   title,
   subtitle,
-  mt,
 }) => {
   function getTitleAndSubtitleByType(
     styleType: VariantType,
@@ -80,8 +78,10 @@ export const Title: React.FC<TitleType> = ({
   }
 
   return (
-    <TitleWrapper mt={mt}>
+    <TitleWrapper>
       {getTitleAndSubtitleByType(variant, title, subtitle)}
     </TitleWrapper>
   );
 };
+
+export const Title = withLayoutStyles(TitleToTransform);
