@@ -1,15 +1,46 @@
 import { InputHTMLAttributes } from "react";
 import styled from "styled-components";
-import { GRAY, DARK, OPACITY10, OPACITY1 } from "../utils/colors";
-import { withLayoutStyles } from "./LayoutStyles";
+import { GRAY, DARK, OPACITY10, OPACITY1, WHITE } from "../utils/colors";
+import { PaperPlane } from "./PaperPlane";
 
-const InputArea = styled.input`
-  font-size: 0.875rem;
-  padding: 8px 12px;
+type VariantType = "base" | "send";
+
+type InputAreaStyledType = {
+  mt?: number;
+  ml?: number;
+
+  variant?: VariantType;
+};
+
+const InputWrapper = styled.div<{ maxWidth?: string }>`
+  position: relative;
+  max-width: ${(props) => props.maxWidth};
+`;
+
+const InputArea = styled.input<InputAreaStyledType>`
+  margin-top: ${(props) => props.mt}px;
+  margin-left: ${(props) => props.ml}px;
+
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 10px 16px;
+
   background-color: ${GRAY}${OPACITY10};
   border-radius: 14px;
   border: 1px solid ${GRAY}${OPACITY1};
   color: ${DARK};
+  outline: none;
+
+  ${(props) => {
+    if (props.variant === "send") {
+      return `
+    background-color: ${WHITE};
+    padding-right: 44px;
+    `;
+    }
+    return "";
+  }}
 
   :focus {
     border: 1px solid ${DARK};
@@ -20,13 +51,37 @@ const InputArea = styled.input`
   }
 `;
 
+const PaperPlaneWrapper = styled.div`
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  z-index: 1;
+  cursor: pointer;
+`;
+
 interface BaseInputType extends InputHTMLAttributes<HTMLInputElement> {
   mt?: number;
   ml?: number;
+  maxWidth?: number;
+  variant?: VariantType;
 }
 
-const BaseInputToTransform: React.FC<BaseInputType> = ({ ...rest }) => {
-  return <InputArea {...rest} />;
+export const BaseInput: React.FC<BaseInputType> = ({
+  variant = "base",
+  onClick,
+  ...rest
+}) => {
+  return (
+    <InputWrapper>
+      <InputArea type="text" variant={variant} {...rest} />
+      {variant === "send" && (
+        <PaperPlaneWrapper onClick={onClick}>
+          <PaperPlane />
+        </PaperPlaneWrapper>
+      )}
+    </InputWrapper>
+  );
+
 };
 
 export const BaseInput = withLayoutStyles(BaseInputToTransform);
