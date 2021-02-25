@@ -8,9 +8,11 @@ type TitleType = {
   variant?: VariantType;
   title: string;
   subtitle?: string;
+  mt?: number;
 };
 
-const TitleWrapper = styled.div`
+const TitleWrapper = styled.div<{ mt?: number }>`
+  margin-top: ${(props) => props.mt}px;
   font-family: "'Abhaya Libre', serif";
 `;
 
@@ -21,7 +23,7 @@ const TitleLarge = styled.h2`
 `;
 
 const TitleLargeSubtitle = styled.h3`
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   font-family: "Poppins";
   color: ${GRAY};
@@ -34,7 +36,7 @@ const TitleMedium = styled.h3`
 `;
 
 const TitleMediumSubtitle = styled.h4`
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 500;
   color: ${GRAY};
 `;
@@ -50,6 +52,7 @@ export const Title: React.FC<TitleType> = ({
   variant = "small",
   title,
   subtitle,
+  mt,
 }) => {
   function getTitleAndSubtitleByType(
     styleType: VariantType,
@@ -77,7 +80,7 @@ export const Title: React.FC<TitleType> = ({
   }
 
   return (
-    <TitleWrapper>
+    <TitleWrapper mt={mt}>
       {getTitleAndSubtitleByType(variant, title, subtitle)}
     </TitleWrapper>
   );

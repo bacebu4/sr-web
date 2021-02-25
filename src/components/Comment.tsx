@@ -3,7 +3,8 @@ import { GRAY, WHITE } from "../utils/colors";
 import { FlexBox } from "./FlexBox";
 import { Dots } from "./Dots";
 
-const CommentWrapper = styled.section`
+const CommentWrapper = styled.section<{ mt?: number }>`
+  margin-top: ${(props) => props.mt}px;
   background-color: ${WHITE};
   border-radius: 20px;
   padding: 32px;
@@ -26,9 +27,13 @@ const ButtonWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const Comment: React.FC = () => {
+type CommentProps = {
+  mt?: number;
+};
+
+export const Comment: React.FC<CommentProps> = ({ mt }) => {
   return (
-    <CommentWrapper>
+    <CommentWrapper mt={mt}>
       <FlexBox jc="space-between" ai="center">
         <CommentDate>2020/08/02</CommentDate>
         <ButtonWrapper>
