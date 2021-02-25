@@ -3,7 +3,7 @@ import { GRAY, WHITE } from "../utils/colors";
 import { FlexBox } from "./FlexBox";
 import { Dots } from "./Dots";
 
-const CommentWrapper = styled.section<CommentProps>`
+const CommentWrapper = styled.section<{ mt?: number }>`
   margin-top: ${(props) => props.mt}px;
   background-color: ${WHITE};
   border-radius: 20px;
