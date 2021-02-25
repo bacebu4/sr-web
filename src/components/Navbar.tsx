@@ -30,7 +30,7 @@ export const Navbar: React.FC = () => {
       <NavbarContainer>
         <NavbarInner>
           <Logo />
-          <BaseInput placeholder="Notes & Books" maxWidth={230} />
+          <BaseInput placeholder="Notes & Books" maxWidth="230px" />
         </NavbarInner>
       </NavbarContainer>
     </NavbarWrapper>
