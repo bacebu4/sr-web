@@ -137,3 +137,11 @@ body {
 #root {
   background-color: #f9f9f9;
 }
+
+.active {
+  fill: #cca9f9;
+  border-radius: 10px;
+}
+.empty {
+  fill: #eeeeee;
+}
