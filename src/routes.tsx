@@ -30,7 +30,6 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
                 subtitle="Don’t forget what you read. Review your notes daily!"
               />
               <Heatmap />
-
             </>
           </Route>
           <Redirect to="/" />
