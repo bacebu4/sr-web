@@ -7,9 +7,6 @@ import { withLayoutStyles } from "./LayoutStyles";
 type VariantType = "base" | "send";
 
 type InputAreaStyledType = {
-  mt?: number;
-  ml?: number;
-
   variant?: VariantType;
 };
 
