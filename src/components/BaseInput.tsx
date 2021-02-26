@@ -2,6 +2,7 @@ import { InputHTMLAttributes } from "react";
 import styled from "styled-components";
 import { GRAY, DARK, OPACITY10, OPACITY1, WHITE } from "../utils/colors";
 import { PaperPlane } from "./PaperPlane";
+import { withLayoutStyles } from "./LayoutStyles";
 
 type VariantType = "base" | "send";
 
@@ -18,9 +19,6 @@ const InputWrapper = styled.div<{ maxWidth?: string }>`
 `;
 
 const InputArea = styled.input<InputAreaStyledType>`
-  margin-top: ${(props) => props.mt}px;
-  margin-left: ${(props) => props.ml}px;
-
   width: 100%;
   font-family: inherit;
   font-size: 1rem;
@@ -60,20 +58,25 @@ const PaperPlaneWrapper = styled.div`
 `;
 
 interface BaseInputType extends InputHTMLAttributes<HTMLInputElement> {
-  mt?: number;
-  ml?: number;
   maxWidth?: string;
   variant?: VariantType;
+  className?: string;
 }
 
-export const BaseInput: React.FC<BaseInputType> = ({
+const BaseInputLayout: React.FC<BaseInputType> = ({
   variant = "base",
   onClick,
+  className,
   ...rest
 }) => {
   return (
     <InputWrapper>
-      <InputArea type="text" variant={variant} {...rest} />
+      <InputArea
+        type="text"
+        variant={variant}
+        {...rest}
+        className={className}
+      />
       {variant === "send" && (
         <PaperPlaneWrapper onClick={onClick}>
           <PaperPlane />
@@ -82,3 +85,5 @@ export const BaseInput: React.FC<BaseInputType> = ({
     </InputWrapper>
   );
 };
+
+export const BaseInput = withLayoutStyles(BaseInputLayout);

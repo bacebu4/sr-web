@@ -4,11 +4,11 @@ import { withLayoutStyles } from "./LayoutStyles";
 
 type VariantType = "large" | "medium" | "small";
 
-type TitleType = {
+type TitleProps = {
   variant?: VariantType;
   title: string;
   subtitle?: string;
-  mt?: number;
+  className?: string;
 };
 
 const TitleWrapper = styled.div`
@@ -47,10 +47,11 @@ const TitleSmall = styled.h4`
   color: ${GRAY};
 `;
 
-const TitleToTransform: React.FC<TitleType> = ({
+const TitleToTransform: React.FC<TitleProps> = ({
   variant = "small",
   title,
   subtitle,
+  className,
 }) => {
   function getTitleAndSubtitleByType(
     styleType: VariantType,
@@ -78,7 +79,7 @@ const TitleToTransform: React.FC<TitleType> = ({
   }
 
   return (
-    <TitleWrapper>
+    <TitleWrapper className={className}>
       {getTitleAndSubtitleByType(variant, title, subtitle)}
     </TitleWrapper>
   );

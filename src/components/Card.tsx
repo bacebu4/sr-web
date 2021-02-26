@@ -35,9 +35,13 @@ const ButtonWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const CardToTransform: React.FC = () => {
+type CardProps = {
+  className?: string;
+};
+
+export const CardLayout: React.FC<CardProps> = ({ className }) => {
   return (
-    <CardWrapper>
+    <CardWrapper className={className}>
       <FlexBox>
         <img width={48} src={cover} alt="4 Hour Workweek Book cover" />
         <FlexBox direction="column" ml={16}>
@@ -58,4 +62,4 @@ export const CardToTransform: React.FC = () => {
   );
 };
 
-export const Card = withLayoutStyles(CardToTransform);
+export const Card = withLayoutStyles(CardLayout);

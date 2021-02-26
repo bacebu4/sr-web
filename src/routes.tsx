@@ -28,16 +28,16 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
               <BaseInput
                 variant="send"
                 placeholder="Add new comment..."
-                mt={32}
+                mt={16}
               />
               <Title
                 variant="large"
-                mt={100}
+                mt={32}
                 title="Reviewing goals"
                 subtitle="Don’t forget what you read. Review your notes daily!"
               />
 
-              <Heatmap mt={100} />
+              <Heatmap mt={32} />
             </>
           </Route>
           <Redirect to="/" />
