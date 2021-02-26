@@ -66,16 +66,12 @@ const BaseInputLayout: React.FC<BaseInputType> = ({
   variant = "base",
   onClick,
   className,
+  maxWidth,
   ...rest
 }) => {
   return (
-    <InputWrapper>
-      <InputArea
-        type="text"
-        variant={variant}
-        {...rest}
-        className={className}
-      />
+    <InputWrapper className={className} maxWidth={maxWidth}>
+      <InputArea type="text" variant={variant} {...rest} />
 
       {variant === "send" && (
         <PaperPlaneWrapper onClick={onClick}>
