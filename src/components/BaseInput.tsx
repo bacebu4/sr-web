@@ -13,6 +13,7 @@ type InputAreaStyledType = {
 const InputWrapper = styled.div<{ maxWidth?: string }>`
   position: relative;
   max-width: ${(props) => props.maxWidth};
+  width: 100%;
 `;
 
 const InputArea = styled.input<InputAreaStyledType>`
@@ -20,6 +21,7 @@ const InputArea = styled.input<InputAreaStyledType>`
   font-family: inherit;
   font-size: 1rem;
   padding: 10px 16px;
+  width: 100%;
 
   background-color: ${GRAY}${OPACITY10};
   border-radius: 14px;
@@ -74,6 +76,7 @@ const BaseInputLayout: React.FC<BaseInputType> = ({
         {...rest}
         className={className}
       />
+
       {variant === "send" && (
         <PaperPlaneWrapper onClick={onClick}>
           <PaperPlane />
