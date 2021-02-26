@@ -13,14 +13,14 @@ const CommentWrapper = styled.section`
 `;
 
 const CommentDate = styled.h3`
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: ${GRAY};
 `;
 
 const TextWrapper = styled.p`
   text-align: justify;
   line-height: 1.4;
-  margin-top: 16px;
+  margin-top: 4px;
 `;
 
 const ButtonWrapper = styled.div`
@@ -28,12 +28,12 @@ const ButtonWrapper = styled.div`
 `;
 
 type CommentProps = {
-  mt?: number;
+  className?: string;
 };
 
-export const CommentToTransform: React.FC<CommentProps> = () => {
+export const CommentLayout: React.FC<CommentProps> = ({ className }) => {
   return (
-    <CommentWrapper>
+    <CommentWrapper className={className}>
       <FlexBox jc="space-between" ai="center">
         <CommentDate>2020/08/02</CommentDate>
         <ButtonWrapper>
@@ -50,4 +50,4 @@ export const CommentToTransform: React.FC<CommentProps> = () => {
   );
 };
 
-export const Comment = withLayoutStyles(CommentToTransform);
+export const Comment = withLayoutStyles(CommentLayout);

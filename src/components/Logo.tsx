@@ -7,11 +7,16 @@ const SiteHeader = styled.h1`
   font-family: "Abhaya Libre", serif;
   font-size: 2rem;
   font-weight: 800;
+  margin-left: 12px;
 `;
 
-const LogoToTransform: React.FC = () => {
+type LogoProps = {
+  className?: string;
+};
+
+const LogoToTransform: React.FC<LogoProps> = ({ className }) => {
   return (
-    <FlexBox ai="center">
+    <FlexBox ai="center" className={className}>
       <img src={srLogo} alt="logo" />
       <SiteHeader>Book stash</SiteHeader>
     </FlexBox>

@@ -6,6 +6,7 @@ import { withLayoutStyles } from "./LayoutStyles";
 type HeatmapProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: any;
+  className?: string;
 };
 
 const today = new Date();
@@ -25,7 +26,7 @@ function getRandomInt(min: number, max: number) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const HeatmapToTransform: React.FC<HeatmapProps> = ({ data }) => {
+const HeatmapLayout: React.FC<HeatmapProps> = ({ data, className }) => {
   const randomValues = getRange(200).map((index) => {
     return {
       date: shiftDate(today, -index),
@@ -33,7 +34,7 @@ const HeatmapToTransform: React.FC<HeatmapProps> = ({ data }) => {
     };
   });
   return (
-    <>
+    <div className={className}>
       <CalendarHeatmap
         startDate={shiftDate(today, -90)}
         endDate={today}
@@ -56,8 +57,8 @@ const HeatmapToTransform: React.FC<HeatmapProps> = ({ data }) => {
         showMonthLabels={false}
       />
       <ReactTooltip />
-    </>
+    </div>
   );
 };
 
-export const Heatmap = withLayoutStyles(HeatmapToTransform);
+export const Heatmap = withLayoutStyles(HeatmapLayout);
