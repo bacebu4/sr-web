@@ -11,6 +11,7 @@ const StyledButton = styled.button<{ maxWidth?: string }>`
   font-family: "Abhaya Libre", serif;
   font-size: 1rem;
   font-weight: 700;
+  line-height: 20px;
   color: ${WHITE};
 
   border: 1px solid ${PINK};
@@ -31,7 +32,6 @@ const StyledButton = styled.button<{ maxWidth?: string }>`
 
 interface IMainButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   maxWidth?: string;
-  children: React.ReactNode;
 }
 
 const BaseButtonLayout: React.FC<IMainButton> = ({
