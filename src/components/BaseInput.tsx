@@ -19,8 +19,8 @@ const InputWrapper = styled.div<{ maxWidth?: string }>`
 const InputArea = styled.input<InputAreaStyledType>`
   width: 100%;
   font-family: inherit;
-  font-size: 1rem;
-  padding: 10px 16px;
+  font-size: 0.875rem;
+  padding: 9px 15px;
   width: 100%;
 
   background-color: ${GRAY}${OPACITY10};
