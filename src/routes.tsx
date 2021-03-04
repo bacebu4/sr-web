@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import { BaseButton } from "./components/BaseButton";
 import { BaseInput } from "./components/BaseInput";
 import { Card } from "./components/Card";
 import { Comment } from "./components/Comment";
@@ -25,6 +26,9 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
 
               <Card mt={32} />
               <Comment mt={16} />
+              <BaseButton mt={16} type="button">
+                Start review process
+              </BaseButton>
               <BaseInput
                 variant="send"
                 placeholder="Add new comment..."

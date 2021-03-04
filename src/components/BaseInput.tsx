@@ -18,15 +18,17 @@ const InputWrapper = styled.div<{ maxWidth?: string }>`
 
 const InputArea = styled.input<InputAreaStyledType>`
   width: 100%;
+  padding: 9px 15px;
+
   font-family: inherit;
   font-size: 1rem;
-  padding: 10px 16px;
-  width: 100%;
+  line-height: 20px;
+  color: ${DARK};
 
   background-color: ${GRAY}${OPACITY10};
   border-radius: 14px;
   border: 1px solid ${GRAY}${OPACITY1};
-  color: ${DARK};
+
   outline: none;
 
   ${(props) => {
