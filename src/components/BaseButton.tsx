@@ -1,4 +1,3 @@
-import React, { ButtonHTMLAttributes } from "react";
 import styled from "styled-components";
 import { PINK, WHITE, DARK } from "../utils/colors";
 import { withLayoutStyles } from "./LayoutStyles";
@@ -30,20 +29,4 @@ const StyledButton = styled.button<{ maxWidth?: string }>`
   }
 `;
 
-interface IMainButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-  maxWidth?: string;
-}
-
-const BaseButtonLayout: React.FC<IMainButton> = ({
-  children,
-  maxWidth,
-  ...rest
-}) => {
-  return (
-    <StyledButton maxWidth={maxWidth} {...rest}>
-      {children}
-    </StyledButton>
-  );
-};
-
-export const BaseButton = withLayoutStyles(BaseButtonLayout);
+export const BaseButton = withLayoutStyles(StyledButton);

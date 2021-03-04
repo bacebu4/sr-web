@@ -26,7 +26,9 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
 
               <Card mt={32} />
               <Comment mt={16} />
-              <BaseButton mt={16}>Start review process</BaseButton>
+              <BaseButton mt={16} type="button">
+                Start review process
+              </BaseButton>
               <BaseInput
                 variant="send"
                 placeholder="Add new comment..."
