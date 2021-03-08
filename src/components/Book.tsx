@@ -5,7 +5,6 @@ import { Title } from "./Title";
 
 const BookInfoWrapper = styled.div`
   margin-top: 16px;
-
   width: 86px;
 `;
 
