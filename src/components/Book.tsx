@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Cover from "../assets/cover.png";
+import cover from "../assets/cover.png";
 import { withLayoutStyles } from "./LayoutStyles";
 import { Title } from "./Title";
 
