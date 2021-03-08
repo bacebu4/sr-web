@@ -16,7 +16,7 @@ type BookType = {
 const BookLayout: React.FC<BookType> = ({ className }) => {
   return (
     <div className={className}>
-      <img width="86px" src={Cover} alt="Book cover" />
+      <img width="86px" src={cover} alt="Book cover" />
       <BookInfoWrapper>
         <Title variant="book" title="Anna Karenina" subtitle="Lev Tolstoy" />
       </BookInfoWrapper>
