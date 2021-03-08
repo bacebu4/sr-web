@@ -52,7 +52,7 @@ const InputArea = styled.input<InputAreaStyledType>`
 
 const PaperPlaneWrapper = styled.div`
   position: absolute;
-  bottom: 10px;
+  bottom: 9px;
   right: 16px;
   z-index: 1;
   cursor: pointer;

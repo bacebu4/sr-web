@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { GRAY } from "../utils/colors";
 import { withLayoutStyles } from "./LayoutStyles";
 
-type VariantType = "large" | "medium" | "small";
+type VariantType = "large" | "medium" | "small" | "book";
 
 type TitleProps = {
   variant?: VariantType;
@@ -47,6 +47,18 @@ const TitleSmall = styled.h4`
   color: ${GRAY};
 `;
 
+const TitleBook = styled.h3`
+  font-size: 1rem;
+  line-height: 19px;
+`;
+
+const TitleBookSubtitle = styled.h3`
+  font-size: 1rem;
+  line-height: 19px;
+
+  color: ${GRAY};
+`;
+
 const TitleToTransform: React.FC<TitleProps> = ({
   variant = "small",
   title,
@@ -71,6 +83,13 @@ const TitleToTransform: React.FC<TitleProps> = ({
           <>
             <TitleMedium>{titleText}</TitleMedium>
             <TitleMediumSubtitle>{subtitleText}</TitleMediumSubtitle>
+          </>
+        );
+      case "book":
+        return (
+          <>
+            <TitleBook>{titleText}</TitleBook>
+            <TitleBookSubtitle>{subtitleText}</TitleBookSubtitle>
           </>
         );
       default:
