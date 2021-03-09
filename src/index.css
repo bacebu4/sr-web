@@ -141,6 +141,19 @@ body {
   background-color: #f9f9f9;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:focus,
+:hover,
+:visited,
+:link,
+:active {
+  color: #343434;
+  text-decoration: none;
+}
+
 .active {
   fill: #cca9f9;
   border-radius: 10px;
