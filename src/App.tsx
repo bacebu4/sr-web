@@ -11,6 +11,7 @@ import { SeeAll } from "./components/SeeAll";
 import { Book } from "./components/Book";
 import { Title } from "./components/Title";
 import { Tag, TagContainer } from "./components/Tag";
+import { Card } from "./components/Card";
 
 const RightMenu = styled.div`
   position: fixed;
@@ -91,6 +92,7 @@ const App: React.FC = () => {
                 </FlexBox>
               </UserInfoWrapper>
               <ProgressBar mt={16} />
+
               <FlexBox jc="space-between" mt={44}>
                 <Title title="Latest reads" />
                 <SeeAll href="/" />
@@ -99,11 +101,17 @@ const App: React.FC = () => {
                 <Book />
                 <Book ml={36} />
               </FlexBox>
+
+              <FlexBox jc="space-between" mt={44}>
+                <Title title="Notes" />
+                <SeeAll href="/" />
+              </FlexBox>
+              <Card mt={32} variant="dense" />
+
               <FlexBox jc="space-between" mt={44}>
                 <Title title="Recent tags" />
                 <SeeAll href="/" />
               </FlexBox>
-
               <TagContainer mt={16}>
                 <Tag />
                 <Tag />

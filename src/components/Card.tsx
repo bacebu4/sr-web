@@ -5,29 +5,46 @@ import cover from "../assets/cover.png";
 import { Dots } from "./Dots";
 import { withLayoutStyles } from "./LayoutStyles";
 
-const CardWrapper = styled.section`
-  background-color: ${WHITE};
-  border-radius: 20px;
-  padding: 32px;
+type VariantType = "base" | "dense";
+
+const CardWrapper = styled.section<{ variant: VariantType }>`
+  position: relative;
+  padding: ${(p) => (p.variant === "base" ? "32" : "24")}px;
+
   font-family: "Abhaya Libre", serif;
   font-size: 1.125rem;
+
+  background-color: ${WHITE};
+  border-radius: 20px;
 `;
 
-const CardTitle = styled.h2`
+const CardTitle = styled.h2<{ variant: VariantType }>`
   font-weight: 600;
-  font-size: 1.375rem;
-  line-height: 1.4;
+  font-size: ${(p) => (p.variant === "base" ? "1.375" : "1.125")}rem;
+
+  line-height: 1.2;
 `;
 
 const CardAuthor = styled.h3`
+  margin-top: 3px;
+
   font-size: 1.125rem;
   color: ${GRAY};
 `;
 
-const TextWrapper = styled.p`
+const TextWrapper = styled.p<{ variant: VariantType }>`
+  margin-top: 16px;
+
+  ${(p) =>
+    p.variant === "dense" &&
+    `height: 100px;
+    margin-top: 10px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;`}
+
   text-align: justify;
   line-height: 1.4;
-  margin-top: 16px;
 `;
 
 const ButtonWrapper = styled.div`
@@ -35,29 +52,55 @@ const ButtonWrapper = styled.div`
   cursor: pointer;
 `;
 
+const BookCoverWrapper = styled.div`
+  width: 48px;
+  height: auto;
+`;
+
+const BookCover = styled.img`
+  width: inherit;
+`;
+
+const GradientText = styled.div`
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  height: 60px;
+  background-image: linear-gradient(to bottom, transparent, white);
+`;
+
 type CardProps = {
   className?: string;
+  variant?: VariantType;
 };
 
-export const CardLayout: React.FC<CardProps> = ({ className }) => {
+export const CardLayout: React.FC<CardProps> = ({
+  className,
+  variant = "base",
+}) => {
   return (
-    <CardWrapper className={className}>
+    <CardWrapper className={className} variant={variant}>
       <FlexBox>
-        <img width={48} src={cover} alt="4 Hour Workweek Book cover" />
+        <BookCoverWrapper>
+          <BookCover src={cover} alt="4 Hour Workweek Book cover" />
+        </BookCoverWrapper>
         <FlexBox direction="column" ml={16}>
-          <CardTitle>4 Hour Workweek</CardTitle>
+          <CardTitle variant={variant}>4 Hour Workweek</CardTitle>
           <CardAuthor>Tim Ferris</CardAuthor>
         </FlexBox>
         <ButtonWrapper>
           <Dots />
         </ButtonWrapper>
       </FlexBox>
-      <TextWrapper>
+      <TextWrapper variant={variant}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, itaque
         quos vitae quam reiciendis tenetur distinctio officiis corrupti quis
         ratione cupiditate ex praesentium voluptates sed! Quisquam sint in
         nostrum porro!
       </TextWrapper>
+      {variant === "dense" && <GradientText />}
     </CardWrapper>
   );
 };
