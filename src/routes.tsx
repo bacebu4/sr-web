@@ -2,7 +2,6 @@ import { useCallback } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { BaseButton } from "./components/BaseButton";
 import { BaseInput } from "./components/BaseInput";
-import { Book } from "./components/Book";
 import { Card } from "./components/Card";
 import { Comment } from "./components/Comment";
 import { Heatmap } from "./components/Heatmap";
@@ -35,7 +34,6 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
                 placeholder="Add new comment..."
                 mt={16}
               />
-              <Book mt={16} />
               <Title
                 variant="large"
                 mt={32}

@@ -7,6 +7,7 @@ export const OFF_WHITE = "#F9F9F9";
 
 export const OPACITY10 = "1A";
 export const OPACITY1 = "03";
+export const OPACITY50 = "80";
 
 const colors = {
   purple: PURPLE,

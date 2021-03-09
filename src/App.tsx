@@ -3,6 +3,14 @@ import { BrowserRouter } from "react-router-dom";
 import { useRoutes } from "./routes";
 import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
+import { ProgressBar } from "./components/ProgressBar";
+import { FlexBox } from "./components/FlexBox";
+import { GRAY } from "./utils/colors";
+import userPic from "./assets/userPic.png";
+import { SeeAll } from "./components/SeeAll";
+import { Book } from "./components/Book";
+import { Title } from "./components/Title";
+import { Tag, TagContainer } from "./components/Tag";
 
 const RightMenu = styled.div`
   position: fixed;
@@ -21,7 +29,7 @@ const LayoutWrapper = styled.main`
 `;
 
 const RightMenuWrapper = styled.div`
-  max-width: 240px;
+  max-width: 250px;
 `;
 
 const LeftMenuWrapper = styled.div`
@@ -35,6 +43,26 @@ const LeftMenuInner = styled.div`
 
 const PushForStickyFooter = styled.div`
   height: 100px;
+`;
+
+const UserInfoWrapper = styled.div`
+  display: flex;
+
+  cursor: pointer;
+`;
+
+const UserInfoUsername = styled.h2`
+  font-family: "Poppins";
+  font-size: 1rem;
+  font-weight: 500;
+`;
+
+const UserInfoEmail = styled.h3`
+  font-family: "Poppins";
+  font-size: 1rem;
+  font-weight: 400;
+
+  color: ${GRAY};
 `;
 
 const App: React.FC = () => {
@@ -54,7 +82,35 @@ const App: React.FC = () => {
         </LeftMenuWrapper>
         {isAuth && (
           <RightMenuWrapper>
-            <RightMenu>Its me</RightMenu>
+            <RightMenu>
+              <UserInfoWrapper>
+                <img width="44px" src={userPic} alt="User avatar" />
+                <FlexBox direction="column" ml={24} jc="space-around">
+                  <UserInfoUsername>Vasilii Krasikov</UserInfoUsername>
+                  <UserInfoEmail>vasua14735@icloud.com</UserInfoEmail>
+                </FlexBox>
+              </UserInfoWrapper>
+              <ProgressBar mt={16} />
+              <FlexBox jc="space-between" mt={44}>
+                <Title title="Latest reads" />
+                <SeeAll href="/" />
+              </FlexBox>
+              <FlexBox mt={32}>
+                <Book />
+                <Book ml={36} />
+              </FlexBox>
+              <FlexBox jc="space-between" mt={44}>
+                <Title title="Recent tags" />
+                <SeeAll href="/" />
+              </FlexBox>
+
+              <TagContainer mt={16}>
+                <Tag />
+                <Tag />
+                <Tag />
+                <Tag />
+              </TagContainer>
+            </RightMenu>
           </RightMenuWrapper>
         )}
       </LayoutWrapper>
