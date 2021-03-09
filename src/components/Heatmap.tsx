@@ -27,7 +27,7 @@ function getRandomInt(min: number, max: number) {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const HeatmapLayout: React.FC<HeatmapProps> = ({ data, className }) => {
-  const randomValues = getRange(200).map((index) => {
+  const randomValues = getRange(400).map((index) => {
     return {
       date: shiftDate(today, -index),
       count: getRandomInt(0, 1),
@@ -36,7 +36,7 @@ const HeatmapLayout: React.FC<HeatmapProps> = ({ data, className }) => {
   return (
     <div className={className}>
       <CalendarHeatmap
-        startDate={shiftDate(today, -90)}
+        startDate={shiftDate(today, -180)}
         endDate={today}
         values={randomValues}
         classForValue={(value) => {

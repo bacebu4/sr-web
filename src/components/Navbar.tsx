@@ -1,14 +1,17 @@
 import styled from "styled-components";
-import { WHITE } from "../utils/colors";
+import { WHITE, OPACITY90 } from "../utils/colors";
 import { Logo } from "./Logo";
 import { BaseInput } from "./BaseInput";
 
 const NavbarWrapper = styled.header`
-  background-color: ${WHITE};
   position: sticky;
-  width: 100%;
   top: 0;
   z-index: 100;
+
+  width: 100%;
+
+  background-color: ${WHITE}${OPACITY90};
+  backdrop-filter: blur(2px);
 `;
 
 const NavbarContainer = styled.div`
