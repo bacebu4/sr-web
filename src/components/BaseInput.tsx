@@ -4,7 +4,7 @@ import { GRAY, DARK, OPACITY10, OPACITY1, WHITE } from "../utils/colors";
 import { PaperPlane } from "./PaperPlane";
 import { withLayoutStyles } from "./LayoutStyles";
 
-type VariantType = "base" | "send";
+type VariantType = "base" | "send" | "search";
 
 type InputAreaStyledType = {
   variant?: VariantType;
@@ -34,9 +34,16 @@ const InputArea = styled.input<InputAreaStyledType>`
   ${(props) => {
     if (props.variant === "send") {
       return `
-    background-color: ${WHITE};
-    padding-right: 44px;
-    `;
+        background-color: ${WHITE};
+        padding-right: 44px;
+        `;
+    }
+    if (props.variant === "search") {
+      return `
+        padding: 8px 14px;
+        font-size: 0.875rem;
+        border-radius: 12px;
+      `;
     }
     return "";
   }}

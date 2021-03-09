@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { GRAY } from "../utils/colors";
 import { withLayoutStyles } from "./LayoutStyles";
 
-type VariantType = "large" | "medium" | "small" | "book";
+type VariantType = "large" | "medium" | "small" | "book" | "book large";
 
 type TitleProps = {
   variant?: VariantType;
@@ -12,16 +12,17 @@ type TitleProps = {
 };
 
 const TitleWrapper = styled.div`
-  font-family: "'Abhaya Libre', serif";
+  font-family: "Abhaya Libre", serif;
 `;
 
 const TitleLarge = styled.h2`
   font-size: 2rem;
   font-weight: 700;
-  line-height: 1.8;
 `;
 
 const TitleLargeSubtitle = styled.h3`
+  margin-top: 16px;
+
   font-size: 1rem;
   font-weight: 400;
   font-family: "Poppins";
@@ -31,10 +32,11 @@ const TitleLargeSubtitle = styled.h3`
 const TitleMedium = styled.h3`
   font-size: 1.375rem;
   font-weight: 600;
-  line-height: 1.4;
 `;
 
 const TitleMediumSubtitle = styled.h4`
+  margin-top: 6px;
+
   font-size: 1rem;
   font-weight: 500;
   color: ${GRAY};
@@ -54,6 +56,18 @@ const TitleBook = styled.h3`
 
 const TitleBookSubtitle = styled.h3`
   font-size: 1rem;
+  line-height: 19px;
+
+  color: ${GRAY};
+`;
+
+const TitleBookLarge = styled.h3`
+  font-size: 1.125rem;
+  line-height: 19px;
+`;
+
+const TitleBookLargeSubtitle = styled.h3`
+  font-size: 1.125rem;
   line-height: 19px;
 
   color: ${GRAY};
@@ -90,6 +104,13 @@ const TitleToTransform: React.FC<TitleProps> = ({
           <>
             <TitleBook>{titleText}</TitleBook>
             <TitleBookSubtitle>{subtitleText}</TitleBookSubtitle>
+          </>
+        );
+      case "book large":
+        return (
+          <>
+            <TitleBookLarge>{titleText}</TitleBookLarge>
+            <TitleBookLargeSubtitle>{subtitleText}</TitleBookLargeSubtitle>
           </>
         );
       default:
