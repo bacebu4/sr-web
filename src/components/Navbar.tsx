@@ -33,7 +33,11 @@ export const Navbar: React.FC = () => {
       <NavbarContainer>
         <NavbarInner>
           <Logo ml={12} />
-          <BaseInput placeholder="Notes & Books" maxWidth="230px" />
+          <BaseInput
+            variant="search"
+            placeholder="Notes & Books"
+            maxWidth="230px"
+          />
         </NavbarInner>
       </NavbarContainer>
     </NavbarWrapper>
