@@ -9,6 +9,8 @@ import { GRAY } from "./utils/colors";
 import userPic from "./assets/userPic.png";
 import { SeeAll } from "./components/SeeAll";
 import { Book } from "./components/Book";
+import { Title } from "./components/Title";
+import { Tag, TagContainer } from "./components/Tag";
 
 const RightMenu = styled.div`
   position: fixed;
@@ -63,14 +65,6 @@ const UserInfoEmail = styled.h3`
   color: ${GRAY};
 `;
 
-const SeeAllTitle = styled.h3`
-  font-family: "Poppins";
-  font-weight: 600;
-  font-size: 1rem;
-
-  color: ${GRAY};
-`;
-
 const App: React.FC = () => {
   const isAuth = true;
   const { Routes } = useRoutes(isAuth);
@@ -98,13 +92,24 @@ const App: React.FC = () => {
               </UserInfoWrapper>
               <ProgressBar mt={16} />
               <FlexBox jc="space-between" mt={44}>
-                <SeeAllTitle>Latest reads</SeeAllTitle>
-                <SeeAll />
+                <Title title="Latest reads" />
+                <SeeAll href="/" />
               </FlexBox>
               <FlexBox mt={32}>
                 <Book />
                 <Book ml={36} />
               </FlexBox>
+              <FlexBox jc="space-between" mt={44}>
+                <Title title="Recent tags" />
+                <SeeAll href="/" />
+              </FlexBox>
+
+              <TagContainer mt={16}>
+                <Tag />
+                <Tag />
+                <Tag />
+                <Tag />
+              </TagContainer>
             </RightMenu>
           </RightMenuWrapper>
         )}

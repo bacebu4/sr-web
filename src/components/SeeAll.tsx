@@ -1,18 +1,20 @@
+import { AnchorHTMLAttributes } from "react";
 import styled from "styled-components";
 
 const SeeAllWrapper = styled.a`
   display: flex;
-
   cursor: pointer;
 `;
 
-const SeeAllTitle = styled.h3`
+const SeeAllTitle = styled.h5`
   font-family: "Poppins";
   font-weight: 500;
   font-size: 1rem;
 `;
 
-export const SeeAll: React.FC = (props) => {
+type SeeAllType = AnchorHTMLAttributes<HTMLAnchorElement>;
+
+export const SeeAll: React.FC<SeeAllType> = (props) => {
   return (
     <SeeAllWrapper {...props}>
       <SeeAllTitle>See all</SeeAllTitle>
