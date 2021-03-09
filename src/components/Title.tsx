@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { GRAY } from "../utils/colors";
 import { withLayoutStyles } from "./LayoutStyles";
 
-type VariantType = "large" | "medium" | "small" | "book" | "bookLarge";
+type VariantType = "large" | "medium" | "small" | "book" | "book large";
 
 type TitleProps = {
   variant?: VariantType;
@@ -106,7 +106,7 @@ const TitleToTransform: React.FC<TitleProps> = ({
             <TitleBookSubtitle>{subtitleText}</TitleBookSubtitle>
           </>
         );
-      case "bookLarge":
+      case "book large":
         return (
           <>
             <TitleBookLarge>{titleText}</TitleBookLarge>

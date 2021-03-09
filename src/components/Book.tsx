@@ -3,10 +3,10 @@ import cover from "../assets/cover.png";
 import { withLayoutStyles } from "./LayoutStyles";
 import { Title } from "./Title";
 
-type VariantType = "large" | "medium";
+type VariantType = "big" | "small";
 
 const BookWrapper = styled.div<{ variant?: VariantType }>`
-  width: ${(p) => (p.variant === "large" ? "109" : "86")}px;
+  width: ${(p) => (p.variant === "big" ? "109" : "86")}px;
 `;
 
 const BookInfoWrapper = styled.div`
@@ -23,10 +23,10 @@ type BookType = {
   variant?: VariantType;
 };
 
-const BookLayout: React.FC<BookType> = ({ className, variant = "medium" }) => {
-  function getTitleVariant(bookVariant: VariantType): "book" | "bookLarge" {
-    if (bookVariant === "large") {
-      return "bookLarge";
+const BookLayout: React.FC<BookType> = ({ className, variant = "small" }) => {
+  function getTitleVariant(bookVariant: VariantType): "book" | "book large" {
+    if (bookVariant === "big") {
+      return "book large";
     }
     return "book";
   }
