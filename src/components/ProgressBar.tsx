@@ -4,7 +4,7 @@ import { PURPLE, GRAY, OPACITY50 } from "../utils/colors";
 import { FlexBox } from "./FlexBox";
 import { withLayoutStyles } from "./LayoutStyles";
 
-const ProgressBarTitle = styled.div`
+const ProgressBarTitle = styled.h3`
   font-family: "Poppins";
   font-size: 1rem;
   font-weight: 600;
