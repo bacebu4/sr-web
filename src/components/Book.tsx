@@ -13,9 +13,10 @@ const BookInfoWrapper = styled.div`
   margin-top: 16px;
 `;
 
-const BookImageWrapper = styled.img`
+const BookCover = styled.img`
   width: inherit;
-  height: auto;
+
+  border-radius: 4px;
 `;
 
 type BookType = {
@@ -33,7 +34,7 @@ const BookLayout: React.FC<BookType> = ({ className, variant = "small" }) => {
 
   return (
     <BookWrapper className={className} variant={variant}>
-      <BookImageWrapper src={cover} alt="Book cover" />
+      <BookCover src={cover} alt="Book cover" />
       <BookInfoWrapper>
         <Title
           variant={getTitleVariant(variant)}

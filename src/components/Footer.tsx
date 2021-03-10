@@ -2,7 +2,13 @@ import styled from "styled-components";
 import { GRAY } from "../utils/colors";
 
 const FooterWrapper = styled.footer`
-  margin-top: 64px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  padding: inherit;
+  height: 28px;
+
   font-weight: 600;
   color: ${GRAY};
 `;
