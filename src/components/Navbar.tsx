@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { WHITE, OPACITY90 } from "../utils/colors";
 import { Logo } from "./Logo";
 import { BaseInput } from "./BaseInput";
@@ -12,6 +13,8 @@ const NavbarWrapper = styled.header`
 
   background-color: ${WHITE}${OPACITY90};
   backdrop-filter: blur(2px);
+
+  user-select: none;
 `;
 
 const NavbarContainer = styled.div`
@@ -32,7 +35,9 @@ export const Navbar: React.FC = () => {
     <NavbarWrapper>
       <NavbarContainer>
         <NavbarInner>
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
           <BaseInput
             variant="search"
             placeholder="Notes & Books"
