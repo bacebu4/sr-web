@@ -32,7 +32,7 @@ export const Navbar: React.FC = () => {
     <NavbarWrapper>
       <NavbarContainer>
         <NavbarInner>
-          <Logo ml={12} />
+          <Logo />
           <BaseInput
             variant="search"
             placeholder="Notes & Books"
