@@ -59,6 +59,8 @@ const BookCoverWrapper = styled.div`
 
 const BookCover = styled.img`
   width: inherit;
+
+  border-radius: 3px;
 `;
 
 const GradientText = styled.div`
