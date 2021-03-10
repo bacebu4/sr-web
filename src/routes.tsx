@@ -1,11 +1,8 @@
 import { useCallback } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { BaseButton } from "./components/BaseButton";
-import { BaseInput } from "./components/BaseInput";
-import { Card } from "./components/Card";
-import { Comment } from "./components/Comment";
-import { Heatmap } from "./components/Heatmap";
-import { Title } from "./components/Title";
+import { AllBooksPage } from "./pages/AllBooksPage";
+import { BookPage } from "./pages/BookPage";
+import { HomePage } from "./pages/HomePage";
 
 type UseRoutesType = {
   Routes: () => JSX.Element;
@@ -16,34 +13,9 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
     if (isAuth) {
       return (
         <Switch>
-          <Route path="/" exact>
-            <>
-              <Title
-                variant="large"
-                title="Highlight of the day"
-                subtitle="Click on the button below to see the rest of your highlights"
-              />
-
-              <Card mt={32} />
-              <Comment mt={16} />
-              <BaseButton mt={16} type="button">
-                Start review process
-              </BaseButton>
-              <BaseInput
-                variant="send"
-                placeholder="Add new comment..."
-                mt={16}
-              />
-              <Title
-                variant="large"
-                mt={32}
-                title="Reviewing goals"
-                subtitle="Don’t forget what you read. Review your notes daily!"
-              />
-
-              <Heatmap mt={32} />
-            </>
-          </Route>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/books" exact component={AllBooksPage} />
+          <Route path="/books/:id" exact component={BookPage} />
           <Redirect to="/" />
         </Switch>
       );
