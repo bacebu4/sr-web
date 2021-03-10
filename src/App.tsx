@@ -15,22 +15,29 @@ import { Card } from "./components/Card";
 
 const RightMenu = styled.div`
   position: fixed;
-  max-width: inherit;
-  transform: translateX(-100%);
   z-index: 100;
+
+  max-width: inherit;
+
+  transform: translateX(-100%);
 `;
 
 const LayoutWrapper = styled.main`
+  position: relative;
+
   margin: 0 auto;
-  max-width: 860px;
-  display: flex;
-  justify-content: space-between;
   padding: 44px 18px 0;
-  min-height: 100vh;
+  max-width: 860px;
+  min-height: calc(100vh);
 `;
 
 const RightMenuWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+
   max-width: 250px;
+  padding: inherit;
 `;
 
 const LeftMenuWrapper = styled.div`
@@ -39,7 +46,6 @@ const LeftMenuWrapper = styled.div`
 
 const LeftMenuInner = styled.div`
   min-height: 100%;
-  margin-bottom: -100px;
 `;
 
 const PushForStickyFooter = styled.div`

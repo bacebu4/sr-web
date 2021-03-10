@@ -7,7 +7,7 @@ const BooksWrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   align-items: center;
-  width: 500px;
+  width: 100%;
 `;
 
 const BookWrapper = styled.div<{
@@ -19,7 +19,7 @@ const BookWrapper = styled.div<{
 `;
 
 // array to test map
-const books = [1, 1, 1, 1, 1, 1, 1];
+const books = [1, 1, 1, 1, 1, 1, 1, 1];
 
 export const AllBooksPage: React.FC = () => {
   const getPositioningByIndex = (index: number): "start" | "center" | "end" => {
