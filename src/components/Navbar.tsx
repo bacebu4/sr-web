@@ -14,7 +14,6 @@ const NavbarWrapper = styled.header`
   background-color: ${WHITE}${OPACITY90};
   backdrop-filter: blur(2px);
 
-  user-select: none;
 `;
 
 const NavbarContainer = styled.div`
