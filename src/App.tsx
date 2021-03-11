@@ -112,7 +112,7 @@ const App: React.FC = () => {
                 <Title title="Notes" />
                 <SeeAll href="/" />
               </FlexBox>
-              <Card mt={32} variant="dense" />
+              <Card mt={32} variant="widget" />
 
               <FlexBox jc="space-between" mt={44}>
                 <Title title="Recent tags" />
