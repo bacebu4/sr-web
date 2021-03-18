@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { BaseButton } from "../components/BaseButton";
 import { FlexBox } from "../components/FlexBox";
-import { IosArrow } from "../components/IosArrow";
+import { Counter } from "../components/Counter";
 import { withLayoutStyles } from "../components/LayoutStyles";
 import { Title } from "../components/Title";
 import { GRAY } from "../utils/colors";
@@ -20,28 +20,9 @@ const SettingsSubtitle = withLayoutStyles(styled.h5`
   color: ${GRAY};
 `);
 
-const HighlightsCounter = styled.span`
-  width: 32px;
-
-  font-family: "Poppins";
-  font-size: 1.125rem;
-  font-weight: 400;
-  text-align: center;
-`;
-
-const ArrowButton = styled.button`
-  padding: 0;
-  height: 24px;
-
-  border: none;
-  background: none;
-
-  outline: none;
-  cursor: pointer;
-`;
-
 export const SettingsPage: React.FC = () => {
   const [counter, setCounter] = useState(0);
+
   return (
     <>
       <Title
@@ -52,19 +33,7 @@ export const SettingsPage: React.FC = () => {
 
       <FlexBox jc="space-between" ai="center" mt={32}>
         <SettinTitle>Hightlights per day</SettinTitle>
-        <FlexBox jc="space-between" ai="center" w="80px">
-          <ArrowButton
-            type="button"
-            onClick={() => setCounter(counter - 1)}
-            disabled={counter <= 0}
-          >
-            <IosArrow />
-          </ArrowButton>
-          <HighlightsCounter>{counter}</HighlightsCounter>
-          <ArrowButton type="button" onClick={() => setCounter(counter + 1)}>
-            <IosArrow right />
-          </ArrowButton>
-        </FlexBox>
+        <Counter counter={counter} setCounter={setCounter} />
       </FlexBox>
 
       <SettingsSubtitle mt={16}>
