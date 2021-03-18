@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { AllBooksPage } from "./pages/AllBooksPage";
 import { BookPage } from "./pages/BookPage";
 import { HomePage } from "./pages/HomePage";
+import { SettingsPage } from "./pages/SettingsPage";
 
 type UseRoutesType = {
   Routes: () => JSX.Element;
@@ -16,6 +17,7 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
           <Route path="/" exact component={HomePage} />
           <Route path="/books" exact component={AllBooksPage} />
           <Route path="/books/:id" exact component={BookPage} />
+          <Route path="/settings" exact component={SettingsPage} />
           <Redirect to="/" />
         </Switch>
       );
