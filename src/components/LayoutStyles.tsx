@@ -11,8 +11,8 @@ export function withLayoutStyles<P>(
   Component: React.FC<P>
 ): StyledComponent<React.FC<P>, object, P & LayoutStylesProps, never> {
   const ComponentWithAdded = styled(Component)<LayoutStylesProps & P>`
-    margin-top: ${(props) => props.mt}px;
-    margin-left: ${(props) => props.ml}px;
+    ${(props) => props.mt && `margin-top: ${props.mt}px;`}
+    ${(props) => props.ml && `margin-left: ${props.ml}px;`}
   `;
 
   return ComponentWithAdded;
