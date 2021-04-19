@@ -30,6 +30,21 @@ const LayoutWrapper = styled.main`
   min-height: calc(100vh);
 `;
 
+const AuthLayoutWrapper = styled.main`
+  position: relative;
+
+  margin: 0 auto;
+  padding: 44px 18px 0;
+  max-width: 350px;
+  min-height: calc(100vh);
+`;
+
+const AuthLayoutInner = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
 const RightMenuWrapper = styled.div`
   position: absolute;
   top: 0;
@@ -52,57 +67,67 @@ const PushForStickyFooter = styled.div`
 `;
 
 const App: React.FC = () => {
-  const isAuth = true;
+  const isAuth = false;
   const { Routes } = useRoutes(isAuth);
 
   return (
     <BrowserRouter>
-      {isAuth && <Navbar />}
-      <LayoutWrapper>
-        <LeftMenuWrapper>
-          <LeftMenuInner>
+      {isAuth && (
+        <>
+          <Navbar />
+          <LayoutWrapper>
+            <LeftMenuWrapper>
+              <LeftMenuInner>
+                <Routes />
+                <PushForStickyFooter />
+              </LeftMenuInner>
+              <Footer />
+            </LeftMenuWrapper>
+
+            <RightMenuWrapper>
+              <RightMenu>
+                <UserInfo />
+                <ProgressBar mt={16} />
+
+                <FlexBox jc="space-between" mt={44}>
+                  <Title title="Latest reads" />
+                  <SeeAll href="/" />
+                </FlexBox>
+
+                <FlexBox mt={32}>
+                  <Book />
+                  <Book ml={36} />
+                </FlexBox>
+
+                <FlexBox jc="space-between" mt={44}>
+                  <Title title="Notes" />
+                  <SeeAll href="/" />
+                </FlexBox>
+                <Card mt={32} variant="widget" />
+
+                <FlexBox jc="space-between" mt={44}>
+                  <Title title="Recent tags" />
+                  <SeeAll href="/" />
+                </FlexBox>
+
+                <TagContainer mt={16}>
+                  <Tag />
+                  <Tag />
+                  <Tag />
+                  <Tag />
+                </TagContainer>
+              </RightMenu>
+            </RightMenuWrapper>
+          </LayoutWrapper>
+        </>
+      )}
+      {!isAuth && (
+        <AuthLayoutWrapper>
+          <AuthLayoutInner>
             <Routes />
-            <PushForStickyFooter />
-          </LeftMenuInner>
-          <Footer />
-        </LeftMenuWrapper>
-        {isAuth && (
-          <RightMenuWrapper>
-            <RightMenu>
-              <UserInfo />
-              <ProgressBar mt={16} />
-
-              <FlexBox jc="space-between" mt={44}>
-                <Title title="Latest reads" />
-                <SeeAll href="/" />
-              </FlexBox>
-
-              <FlexBox mt={32}>
-                <Book />
-                <Book ml={36} />
-              </FlexBox>
-
-              <FlexBox jc="space-between" mt={44}>
-                <Title title="Notes" />
-                <SeeAll href="/" />
-              </FlexBox>
-              <Card mt={32} variant="widget" />
-
-              <FlexBox jc="space-between" mt={44}>
-                <Title title="Recent tags" />
-                <SeeAll href="/" />
-              </FlexBox>
-
-              <TagContainer mt={16}>
-                <Tag />
-                <Tag />
-                <Tag />
-                <Tag />
-              </TagContainer>
-            </RightMenu>
-          </RightMenuWrapper>
-        )}
-      </LayoutWrapper>
+          </AuthLayoutInner>
+        </AuthLayoutWrapper>
+      )}
     </BrowserRouter>
   );
 };

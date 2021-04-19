@@ -3,6 +3,8 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { AllBooksPage } from "./pages/AllBooksPage";
 import { BookPage } from "./pages/BookPage";
 import { HomePage } from "./pages/HomePage";
+import { LoginPage } from "./pages/LoginPage";
+import { RegisterPage } from "./pages/RegisterPage";
 import { SettingsPage } from "./pages/SettingsPage";
 
 type UseRoutesType = {
@@ -25,11 +27,9 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
 
     return (
       <Switch>
-        <Route path="/auth">
-          <div>auth</div>
-        </Route>
-
-        <Redirect to="/auth" />
+        <Route path="/register" exact component={RegisterPage} />
+        <Route path="/login" exact component={LoginPage} />
+        <Redirect to="/register" />
       </Switch>
     );
   }, [isAuth]);
