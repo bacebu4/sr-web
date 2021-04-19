@@ -42,6 +42,12 @@ const AuthLayoutWrapper = styled.main`
 const AuthLayoutInner = styled.div`
   position: absolute;
   top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  padding: inherit;
+
   transform: translateY(-50%);
 `;
 
