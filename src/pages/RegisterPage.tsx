@@ -12,14 +12,26 @@ const RegisterPageHeader = withLayoutStyles(styled.div`
   text-align: center;
 `);
 
+const SecondPageLink = withLayoutStyles(styled.a`
+  display: block;
+
+  font-family: "Abhaya Libre";
+  font-weight: 800;
+  font-size: 1.125rem;
+  text-align: center;
+`);
+
 export const RegisterPage: React.FC = () => {
   return (
-    <div>
+    <>
       <AuthGreetingsPic />
       <RegisterPageHeader mt={42}>Remember what you read</RegisterPageHeader>
       <BaseInput placeholder="Login or email" mt={60} />
       <BaseInput placeholder="Password" mt={16} />
       <BaseButton mt={16}>Register</BaseButton>
-    </div>
+      <SecondPageLink mt={24} href="/login">
+        Already have an account?
+      </SecondPageLink>
+    </>
   );
 };
