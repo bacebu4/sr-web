@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { useRoutes } from "./routes";
 import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
@@ -73,7 +73,7 @@ const PushForStickyFooter = styled.div`
 `;
 
 const App: React.FC = () => {
-  const isAuth = false;
+  const isAuth = true;
   const { Routes } = useRoutes(isAuth);
 
   return (
