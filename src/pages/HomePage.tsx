@@ -21,7 +21,7 @@ export const HomePage: React.FC = () => {
       <Card mt={32} />
       <Comment mt={16} />
       <BaseButton mt={16} type="button">
-        Start review process
+        {t("Start review process")}
       </BaseButton>
       <BaseInput variant="send" placeholder={t("Add new comment...")} mt={16} />
       <Title

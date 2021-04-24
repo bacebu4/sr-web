@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 import { BaseButton } from "../components/BaseButton";
 import { FlexBox } from "../components/FlexBox";
 import { Counter } from "../components/Counter";
@@ -21,32 +22,35 @@ const SettingsSubtitle = withLayoutStyles(styled.h5`
 `);
 
 export const SettingsPage: React.FC = () => {
+  const { t } = useTranslation();
+
   const [counter, setCounter] = useState(0);
 
   return (
     <>
       <Title
         variant="large"
-        title="Account settings"
-        subtitle="Quick description of what user can do in this section"
+        title={t("Account settings")}
+        subtitle={t("Manage your account settings")}
       />
 
       <FlexBox jc="space-between" ai="center" mt={32}>
-        <SettinTitle>Hightlights per day</SettinTitle>
+        <SettinTitle>{t("Highlights per day")}</SettinTitle>
         <Counter counter={counter} setCounter={setCounter} />
       </FlexBox>
 
       <SettingsSubtitle mt={16}>
-        Configure how much highlights you want to see on a daily basis
+        {t("Configure how much highlights you want to see on a daily basis")}
       </SettingsSubtitle>
-      <SettinTitle mt={28}>Restart manual</SettinTitle>
+      <SettinTitle mt={28}>{t("Restart manual")}</SettinTitle>
       <SettingsSubtitle mt={16}>
-        Click this button if you want to see thr tutorial all over again in case
-        you miss something
+        {t(
+          "Click this button if you want to see tutorial all over again in case you miss something"
+        )}
       </SettingsSubtitle>
-      <SettinTitle mt={28}>Show terms and conditions</SettinTitle>
-      <SettinTitle mt={28}>Show privacy policy</SettinTitle>
-      <BaseButton mt={28}>Sign Out</BaseButton>
+      <SettinTitle mt={28}>{t("Show terms and conditions")}</SettinTitle>
+      <SettinTitle mt={28}>{t("Show privacy policy")}</SettinTitle>
+      <BaseButton mt={28}>{t("Sign out")}</BaseButton>
     </>
   );
 };

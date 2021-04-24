@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import ProgressLabel from "react-progress-label";
 import styled from "styled-components";
 import { PURPLE, GRAY, OPACITY50 } from "../utils/colors";
@@ -17,6 +18,8 @@ type ProgressBarType = {
 };
 
 const ProgressBarLayout: React.FC<ProgressBarType> = ({ className }) => {
+  const { t } = useTranslation();
+
   return (
     <FlexBox className={className}>
       {/* // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -33,7 +36,7 @@ const ProgressBarLayout: React.FC<ProgressBarType> = ({ className }) => {
         trackBorderColor="#fff"
         style={{ marginRight: "16px" }}
       />
-      <ProgressBarTitle>Review Process</ProgressBarTitle>
+      <ProgressBarTitle>{t("Review Process")}</ProgressBarTitle>
     </FlexBox>
   );
 };

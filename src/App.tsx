@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { BrowserRouter } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useRoutes } from "./routes";
 import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
@@ -73,6 +74,8 @@ const PushForStickyFooter = styled.div`
 `;
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
+
   const isAuth = true;
   const { Routes } = useRoutes(isAuth);
 
@@ -96,7 +99,7 @@ const App: React.FC = () => {
                 <ProgressBar mt={16} />
 
                 <FlexBox jc="space-between" mt={44}>
-                  <Title title="Latest reads" />
+                  <Title title={t("Latest reads")} />
                   <SeeAll href="/" />
                 </FlexBox>
 
@@ -106,13 +109,13 @@ const App: React.FC = () => {
                 </FlexBox>
 
                 <FlexBox jc="space-between" mt={44}>
-                  <Title title="Notes" />
+                  <Title title={t("Notes")} />
                   <SeeAll href="/" />
                 </FlexBox>
                 <Card mt={32} variant="widget" />
 
                 <FlexBox jc="space-between" mt={44}>
-                  <Title title="Recent tags" />
+                  <Title title={t("Recent tag")} />
                   <SeeAll href="/" />
                 </FlexBox>
 
