@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { WHITE, OPACITY90 } from "../utils/colors";
 import { Logo } from "./Logo";
 import { BaseInput } from "./BaseInput";
@@ -29,6 +30,8 @@ const NavbarInner = styled.div`
 `;
 
 export const Navbar: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <NavbarWrapper>
       <NavbarContainer>
@@ -38,7 +41,7 @@ export const Navbar: React.FC = () => {
           </Link>
           <BaseInput
             variant="search"
-            placeholder="Notes & Books"
+            placeholder={t("Notes & Books")}
             maxWidth="230px"
           />
         </NavbarInner>

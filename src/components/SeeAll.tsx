@@ -1,4 +1,5 @@
 import { AnchorHTMLAttributes } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 const SeeAllWrapper = styled.a`
@@ -15,9 +16,11 @@ const SeeAllTitle = styled.h5`
 type SeeAllType = AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export const SeeAll: React.FC<SeeAllType> = (props) => {
+  const { t } = useTranslation();
+
   return (
     <SeeAllWrapper {...props}>
-      <SeeAllTitle>See all</SeeAllTitle>
+      <SeeAllTitle>{t("See all")}</SeeAllTitle>
       <svg
         width="16"
         height="15"
