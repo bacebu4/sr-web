@@ -1,0 +1,6 @@
+mutation UpdateReviewAmount($reviewAmount: Int!) {
+  updateReviewAmount(reviewAmount: $reviewAmount) {
+    reviewAmount
+    id
+  }
+}

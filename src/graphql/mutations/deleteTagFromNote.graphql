@@ -1,0 +1,10 @@
+mutation DeleteTagFromNote($noteId: ID!, $tagId: ID!) {
+  deleteTagFromNote(noteId: $noteId, tagId: $tagId) {
+    id
+    tags {
+      id
+      name
+      hue
+    }
+  }
+}

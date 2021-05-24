@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { BaseButton } from "../components/BaseButton";
@@ -7,6 +7,8 @@ import { Counter } from "../components/Counter";
 import { withLayoutStyles } from "../components/LayoutStyles";
 import { Title } from "../components/Title";
 import { GRAY } from "../utils/colors";
+import { UserContext } from "../userStore/userContext";
+import { TOKEN_LOCALSTORAGE_KEY } from "../utils/constants";
 
 const SettinTitle = withLayoutStyles(styled.h4`
   font-family: "Poppins";
@@ -23,6 +25,8 @@ const SettingsSubtitle = withLayoutStyles(styled.h5`
 
 export const SettingsPage: React.FC = () => {
   const { t } = useTranslation();
+
+  const { setToken } = useContext(UserContext);
 
   const [counter, setCounter] = useState(0);
 
@@ -50,7 +54,15 @@ export const SettingsPage: React.FC = () => {
       </SettingsSubtitle>
       <SettinTitle mt={28}>{t("Show terms and conditions")}</SettinTitle>
       <SettinTitle mt={28}>{t("Show privacy policy")}</SettinTitle>
-      <BaseButton mt={28}>{t("Sign out")}</BaseButton>
+      <BaseButton
+        onClick={() => {
+          setToken("");
+          localStorage.removeItem(TOKEN_LOCALSTORAGE_KEY);
+        }}
+        mt={28}
+      >
+        {t("Sign out")}
+      </BaseButton>
     </>
   );
 };

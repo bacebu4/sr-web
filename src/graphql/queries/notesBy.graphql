@@ -1,0 +1,8 @@
+query NotesBy($type: String!, $id: ID!) {
+  notesBy(type: $type, id: $id) {
+    text
+    id
+    title
+    author
+  }
+}

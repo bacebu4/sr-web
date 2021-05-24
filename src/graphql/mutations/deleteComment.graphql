@@ -1,0 +1,11 @@
+mutation DeleteComment($commentId: ID!, $noteId: ID!) {
+  deleteComment(commentId: $commentId, noteId: $noteId) {
+    id
+    comments {
+      id
+      text
+      createdAt
+      noteId
+    }
+  }
+}

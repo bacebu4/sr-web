@@ -1,0 +1,8 @@
+mutation SearchNotes($substring: String!) {
+  searchNotes(substring: $substring) {
+    text
+    id
+    title
+    author
+  }
+}

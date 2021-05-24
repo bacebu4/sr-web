@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { BrowserRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Provider } from "urql";
+import { useContext, useEffect } from "react";
 import { useRoutes } from "./routes";
 import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
@@ -12,6 +14,10 @@ import { Title } from "./components/Title";
 import { Tag, TagContainer } from "./components/Tag";
 import { Card } from "./components/Card";
 import { UserInfo } from "./components/UserInfo";
+import { createUrqlClient } from "./utils/createUrqlClient";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { TOKEN_LOCALSTORAGE_KEY } from "./utils/constants";
+import { UserContext } from "./userStore/userContext";
 
 const RightMenu = styled.div`
   position: fixed;
@@ -76,68 +82,80 @@ const PushForStickyFooter = styled.div`
 const App: React.FC = () => {
   const { t } = useTranslation();
 
-  const isAuth = true;
-  const { Routes } = useRoutes(isAuth);
+  const { token, setToken } = useContext(UserContext);
+  const localStorageToken = useLocalStorage("GET", TOKEN_LOCALSTORAGE_KEY);
+
+  useEffect(() => {
+    if (localStorageToken) {
+      setToken(localStorageToken);
+    }
+  }, [localStorageToken, setToken]);
+
+  const client = createUrqlClient(String(localStorageToken));
+
+  const { Routes } = useRoutes(Boolean(token));
 
   return (
-    <BrowserRouter>
-      {isAuth && (
-        <>
-          <Navbar />
-          <LayoutWrapper>
-            <LeftMenuWrapper>
-              <LeftMenuInner>
-                <Routes />
-                <PushForStickyFooter />
-              </LeftMenuInner>
-              <Footer />
-            </LeftMenuWrapper>
+    <Provider value={client}>
+      <BrowserRouter>
+        {token && (
+          <>
+            <Navbar />
+            <LayoutWrapper>
+              <LeftMenuWrapper>
+                <LeftMenuInner>
+                  <Routes />
+                  <PushForStickyFooter />
+                </LeftMenuInner>
+                <Footer />
+              </LeftMenuWrapper>
 
-            <RightMenuWrapper>
-              <RightMenu>
-                <UserInfo />
-                <ProgressBar mt={16} />
+              <RightMenuWrapper>
+                <RightMenu>
+                  <UserInfo />
+                  <ProgressBar mt={16} />
 
-                <FlexBox jc="space-between" mt={44}>
-                  <Title title={t("Latest reads")} />
-                  <SeeAll href="/" />
-                </FlexBox>
+                  <FlexBox jc="space-between" mt={44}>
+                    <Title title={t("Latest reads")} />
+                    <SeeAll href="/" />
+                  </FlexBox>
 
-                <FlexBox mt={32}>
-                  <Book />
-                  <Book ml={36} />
-                </FlexBox>
+                  <FlexBox mt={32}>
+                    <Book />
+                    <Book ml={36} />
+                  </FlexBox>
 
-                <FlexBox jc="space-between" mt={44}>
-                  <Title title={t("Notes")} />
-                  <SeeAll href="/" />
-                </FlexBox>
-                <Card mt={32} variant="widget" />
+                  <FlexBox jc="space-between" mt={44}>
+                    <Title title={t("Notes")} />
+                    <SeeAll href="/" />
+                  </FlexBox>
+                  <Card mt={32} variant="widget" />
 
-                <FlexBox jc="space-between" mt={44}>
-                  <Title title={t("Recent tag")} />
-                  <SeeAll href="/" />
-                </FlexBox>
+                  <FlexBox jc="space-between" mt={44}>
+                    <Title title={t("Recent tag")} />
+                    <SeeAll href="/" />
+                  </FlexBox>
 
-                <TagContainer mt={16}>
-                  <Tag />
-                  <Tag />
-                  <Tag />
-                  <Tag />
-                </TagContainer>
-              </RightMenu>
-            </RightMenuWrapper>
-          </LayoutWrapper>
-        </>
-      )}
-      {!isAuth && (
-        <AuthLayoutWrapper>
-          <AuthLayoutInner>
-            <Routes />
-          </AuthLayoutInner>
-        </AuthLayoutWrapper>
-      )}
-    </BrowserRouter>
+                  <TagContainer mt={16}>
+                    <Tag />
+                    <Tag />
+                    <Tag />
+                    <Tag />
+                  </TagContainer>
+                </RightMenu>
+              </RightMenuWrapper>
+            </LayoutWrapper>
+          </>
+        )}
+        {!token && (
+          <AuthLayoutWrapper>
+            <AuthLayoutInner>
+              <Routes />
+            </AuthLayoutInner>
+          </AuthLayoutWrapper>
+        )}
+      </BrowserRouter>
+    </Provider>
   );
 };
 

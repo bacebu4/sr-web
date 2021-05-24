@@ -1,0 +1,7 @@
+query LatestBooks {
+  latestBooks {
+    id
+    title
+    author
+  }
+}

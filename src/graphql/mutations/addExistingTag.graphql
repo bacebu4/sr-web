@@ -1,0 +1,10 @@
+mutation AddExistingTag($noteId: ID!, $tagId: ID!) {
+  addExistingTag(noteId: $noteId, tagId: $tagId) {
+    id
+    tags {
+      id
+      name
+      hue
+    }
+  }
+}

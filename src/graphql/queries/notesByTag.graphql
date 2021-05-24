@@ -1,0 +1,8 @@
+query NotesByTag($id: ID!) {
+  notesBy(type: "tag", id: $id) {
+    text
+    id
+    title
+    author
+  }
+}

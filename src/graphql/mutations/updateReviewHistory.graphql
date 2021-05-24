@@ -1,0 +1,7 @@
+mutation UpdateReviewHistory {
+  updateReviewHistory {
+    streak
+    reviewed
+    id
+  }
+}

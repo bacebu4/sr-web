@@ -1,0 +1,6 @@
+query NotesByBook($id: ID!) {
+  notesBy(type: "book", id: $id) {
+    text
+    id
+  }
+}

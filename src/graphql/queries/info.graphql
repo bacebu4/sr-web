@@ -1,0 +1,12 @@
+query Info {
+  info {
+    reviewAmount
+    email
+    latestReviewDate
+    streakBeginningDate
+    missed
+    reviewed
+    streak
+    id
+  }
+}
