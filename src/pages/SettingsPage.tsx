@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { BaseButton } from "../components/BaseButton";
@@ -9,6 +9,10 @@ import { Title } from "../components/Title";
 import { GRAY } from "../utils/colors";
 import { UserContext } from "../userStore/userContext";
 import { TOKEN_LOCALSTORAGE_KEY } from "../utils/constants";
+import {
+  useInfoQuery,
+  useUpdateReviewAmountMutation,
+} from "../generated/graphql";
 
 const SettinTitle = withLayoutStyles(styled.h4`
   font-family: "Poppins";
@@ -28,7 +32,22 @@ export const SettingsPage: React.FC = () => {
 
   const { setToken } = useContext(UserContext);
 
-  const [counter, setCounter] = useState(0);
+  const [counterReviewAmount, setCounterReviewAmount] = useState(0);
+  const [result] = useInfoQuery();
+  const { data } = result;
+  const [, updateReviewAmount] = useUpdateReviewAmountMutation();
+
+  useEffect(() => {
+    if (data?.info?.reviewAmount) {
+      setCounterReviewAmount(data?.info?.reviewAmount);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    const upd = async () =>
+      updateReviewAmount({ reviewAmount: counterReviewAmount });
+    upd();
+  }, [counterReviewAmount, updateReviewAmount]);
 
   return (
     <>
@@ -40,7 +59,10 @@ export const SettingsPage: React.FC = () => {
 
       <FlexBox jc="space-between" ai="center" mt={32}>
         <SettinTitle>{t("Highlights per day")}</SettinTitle>
-        <Counter counter={counter} setCounter={setCounter} />
+        <Counter
+          counter={counterReviewAmount}
+          setCounter={setCounterReviewAmount}
+        />
       </FlexBox>
 
       <SettingsSubtitle mt={16}>

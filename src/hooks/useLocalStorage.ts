@@ -12,7 +12,7 @@ export const useLocalStorage = (
       try {
         const itemByKey = localStorage.getItem(key);
         if (itemByKey) {
-          setStorageValue(JSON.parse(itemByKey));
+          setStorageValue(JSON.parse(itemByKey)[key]);
         }
       } catch (error) {
         setStorageValue(null);

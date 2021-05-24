@@ -91,7 +91,7 @@ const App: React.FC = () => {
     }
   }, [localStorageToken, setToken]);
 
-  const client = createUrqlClient(String(localStorageToken));
+  const client = createUrqlClient(token);
 
   const { Routes } = useRoutes(Boolean(token));
 

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { GRAY } from "../utils/colors";
 import userPic from "../assets/userPic.png";
 import { FlexBox } from "./FlexBox";
+import { useInfoQuery } from "../generated/graphql";
 
 const UserInfoWrapper = styled.div`
   display: flex;
@@ -25,13 +26,16 @@ const UserInfoEmail = styled.h3`
 `;
 
 export const UserInfo: React.FC = () => {
+  const [result] = useInfoQuery();
+  const { data } = result;
+
   return (
     <Link to="/settings">
       <UserInfoWrapper>
         <img width="44px" src={userPic} alt="User avatar" />
         <FlexBox direction="column" ml={24} jc="space-around">
-          <UserInfoUsername>Vasilii Krasikov</UserInfoUsername>
-          <UserInfoEmail>vasua14735@icloud.com</UserInfoEmail>
+          <UserInfoUsername>{data?.info?.email.split("@")[0]}</UserInfoUsername>
+          <UserInfoEmail>{data?.info?.email}</UserInfoEmail>
         </FlexBox>
       </UserInfoWrapper>
     </Link>
