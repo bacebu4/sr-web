@@ -1,8 +1,7 @@
-import { AnchorHTMLAttributes } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
-const SeeAllWrapper = styled.a`
+const SeeAllWrapper = styled.div`
   display: flex;
   cursor: pointer;
 `;
@@ -13,13 +12,11 @@ const SeeAllTitle = styled.h5`
   font-size: 1rem;
 `;
 
-type SeeAllType = AnchorHTMLAttributes<HTMLAnchorElement>;
-
-export const SeeAll: React.FC<SeeAllType> = (props) => {
+export const SeeAll: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <SeeAllWrapper {...props}>
+    <SeeAllWrapper>
       <SeeAllTitle>{t("See all")}</SeeAllTitle>
       <svg
         width="16"
