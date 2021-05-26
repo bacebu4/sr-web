@@ -15,7 +15,7 @@ const resources = {
       "Don’t forget what you read. Review your notes daily!":
         "Не забывайте, что вы читали. Просматривайте заметки каждый день!",
       "All books": "Книги",
-      "26 total books were captured": "26 книг сохранено",
+      "total books were captured": "книг сохранено",
       "Account settings": "Настройки аккаунта",
       "Manage your account settings":
         "Просматривайте и изменяйте настройки вашего аккаунта",

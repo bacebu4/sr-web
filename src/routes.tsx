@@ -7,15 +7,7 @@ import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { SettingsPage } from "./pages/SettingsPage";
-
-export const ROUTES = {
-  id: "/:id",
-  books: "/books",
-  settings: "/settings",
-  register: "/register",
-  login: "/login",
-  notes: "/notes",
-};
+import { ROUTES } from "./utils/constants";
 
 type UseRoutesType = {
   Routes: () => JSX.Element;

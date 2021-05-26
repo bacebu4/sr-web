@@ -12,7 +12,7 @@ import { Title } from "../components/Title";
 import { Tag, TagContainer } from "../components/Tag";
 import { Card } from "../components/Card";
 import { UserInfo } from "../components/UserInfo";
-import { ROUTES } from "../routes";
+import { ROUTES } from "../utils/constants";
 
 const RightMenu = styled.div`
   position: fixed;

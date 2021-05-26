@@ -1,7 +1,10 @@
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Book } from "../components/Book";
 import { Title } from "../components/Title";
+import { useLatestBooksQuery } from "../generated/graphql";
+import { ROUTES } from "../utils/constants";
 
 const BooksWrapper = styled.div`
   display: grid;
@@ -19,11 +22,11 @@ const BookWrapper = styled.div<{
   justify-self: ${(p) => p.positionInRow};
 `;
 
-// array to test map
-const books = [1, 1, 1, 1, 1, 1, 1, 1];
-
 export const AllBooksPage: React.FC = () => {
   const { t } = useTranslation();
+
+  const [result] = useLatestBooksQuery();
+  const { data } = result;
 
   const getPositioningByIndex = (index: number): "start" | "center" | "end" => {
     switch ((index + 1) % 3) {
@@ -41,14 +44,26 @@ export const AllBooksPage: React.FC = () => {
       <Title
         variant="large"
         title={t("All books")}
-        subtitle={t("26 total books were captured")}
+        subtitle={`${data?.latestBooks?.length} ${t(
+          "total books were captured"
+        )}`}
       />
       <BooksWrapper>
-        {/* {books.map((_, i) => (
-          <BookWrapper row={i / 3} positionInRow={getPositioningByIndex(i)}>
-            <Book variant="big" mt={24} />
-          </BookWrapper>
-        ))} */}
+        {data?.latestBooks?.map((book, i) => {
+          if (book)
+            return (
+              <BookWrapper
+                row={i / 3}
+                positionInRow={getPositioningByIndex(i)}
+                key={book.id}
+              >
+                <Link to={`${ROUTES.books}/:${book.id}`}>
+                  <Book variant="big" book={book} mt={24} />
+                </Link>
+              </BookWrapper>
+            );
+          return <></>;
+        })}
       </BooksWrapper>
     </>
   );
