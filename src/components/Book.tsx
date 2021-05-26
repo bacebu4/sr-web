@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Book as BookType } from "../generated/graphql";
 import cover from "../assets/cover.png";
 import { withLayoutStyles } from "./LayoutStyles";
 import { Title } from "./Title";
@@ -19,12 +20,17 @@ const BookCover = styled.img`
   border-radius: 4px;
 `;
 
-type BookType = {
+type BookPropsType = {
   className?: string;
   variant?: VariantType;
+  book: BookType;
 };
 
-const BookLayout: React.FC<BookType> = ({ className, variant = "small" }) => {
+const BookLayout: React.FC<BookPropsType> = ({
+  className,
+  variant = "small",
+  book,
+}) => {
   function getTitleVariant(bookVariant: VariantType): "book" | "book large" {
     if (bookVariant === "big") {
       return "book large";
@@ -38,8 +44,8 @@ const BookLayout: React.FC<BookType> = ({ className, variant = "small" }) => {
       <BookInfoWrapper>
         <Title
           variant={getTitleVariant(variant)}
-          title="Anna Karenina"
-          subtitle="Lev Tolstoy"
+          title={book.title}
+          subtitle={book.author}
         />
       </BookInfoWrapper>
     </BookWrapper>
