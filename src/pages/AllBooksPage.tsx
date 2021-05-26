@@ -44,11 +44,11 @@ export const AllBooksPage: React.FC = () => {
         subtitle={t("26 total books were captured")}
       />
       <BooksWrapper>
-        {books.map((_, i) => (
+        {/* {books.map((_, i) => (
           <BookWrapper row={i / 3} positionInRow={getPositioningByIndex(i)}>
             <Book variant="big" mt={24} />
           </BookWrapper>
-        ))}
+        ))} */}
       </BooksWrapper>
     </>
   );

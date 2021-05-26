@@ -1,11 +1,21 @@
 import { useCallback } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { AllBooksPage } from "./pages/AllBooksPage";
+import { AllNotesPage } from "./pages/AllNotesPage";
 import { BookPage } from "./pages/BookPage";
 import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { SettingsPage } from "./pages/SettingsPage";
+
+export const ROUTES = {
+  id: "/:id",
+  books: "/books",
+  settings: "/settings",
+  register: "/register",
+  login: "/login",
+  notes: "/notes",
+};
 
 type UseRoutesType = {
   Routes: () => JSX.Element;
@@ -17,9 +27,15 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
       return (
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/books" exact component={AllBooksPage} />
-          <Route path="/books/:id" exact component={BookPage} />
-          <Route path="/settings" exact component={SettingsPage} />
+          <Route path={ROUTES.books} exact component={AllBooksPage} />
+          <Route path={ROUTES.books + ROUTES.id} exact component={BookPage} />
+          <Route path={ROUTES.notes} exact component={AllNotesPage} />
+          <Route
+            path={ROUTES.notes + ROUTES.id}
+            exact
+            component={AllNotesPage}
+          />
+          <Route path={ROUTES.settings} exact component={SettingsPage} />
           <Redirect to="/" />
         </Switch>
       );
@@ -27,9 +43,9 @@ export const useRoutes = (isAuth: boolean): UseRoutesType => {
 
     return (
       <Switch>
-        <Route path="/register" exact component={RegisterPage} />
-        <Route path="/login" exact component={LoginPage} />
-        <Redirect to="/register" />
+        <Route path={ROUTES.register} exact component={RegisterPage} />
+        <Route path={ROUTES.login} exact component={LoginPage} />
+        <Redirect to={ROUTES.register} />
       </Switch>
     );
   }, [isAuth]);
